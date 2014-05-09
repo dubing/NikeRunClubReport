@@ -1,0 +1,268 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-2.0.xsd">
+
+    <changeSet id="1" author="andrew.bao">
+        <createTable tableName="wechatgroup">
+            <column name="id" type="int" autoIncrement="true">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="wechatgroupid" type="varchar(32)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="wechatgroupname" type="varchar(32)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="size" type="smallint">
+                <constraints nullable="false"/>
+            </column>
+            <column name="capturetime" type="datetime">
+                <constraints nullable="false"/>
+            </column>
+            <column name="savetime" type="datetime" defaultValueComputed="now()">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+
+        <createTable tableName="wechatmember">
+            <column name="id" type="int" autoIncrement="true">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="username" type="varchar(128)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="nickname" type="varchar(128)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="avator" type="varchar(256)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="gender" type="bit">
+                <constraints nullable="false"/>
+            </column>
+            <column name="signature" type="varchar(128)">
+                <constraints nullable="true"/>
+            </column>
+            <column name="location" type="varchar(64)">
+                <constraints nullable="true"/>
+            </column>
+            <column name="capturetime" type="datetime">
+                <constraints nullable="false"/>
+            </column>
+            <column name="savetime" type="datetime" defaultValueComputed="now()">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+
+        <createTable tableName="wechatgroupmembership">
+            <column name="id" type="int" autoIncrement="true">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="groupid" type="int">
+                <constraints nullable="false"/>
+            </column>
+            <column name="memberid" type="int">
+                <constraints nullable="false"/>
+            </column>
+            <column name="savetime" type="datetime" defaultValueComputed="now()">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+
+        <createTable tableName="wechatgroupmonitoring">
+            <column name="id" type="int" autoIncrement="true">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="groupid" type="int">
+                <constraints nullable="false"/>
+            </column>
+            <column name="size" type="smallint">
+                <constraints nullable="false"/>
+            </column>
+            <column name="groupname" type="varchar(128)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="maleamount" type="smallint">
+                <constraints nullable="false"/>
+            </column>
+            <column name="femaleamount" type="smallint">
+                <constraints nullable="false"/>
+            </column>
+            <column name="capturetime" type="datetime">
+                <constraints nullable="false"/>
+            </column>
+            <column name="savetime" type="datetime" defaultValueComputed="now()">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+
+        <createTable tableName="wechatmessage">
+            <column name="id" type="int" autoIncrement="true">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="groupid" type="int">
+                <constraints nullable="false"/>
+            </column>
+            <column name="messageid" type="varchar(32)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="sendtime" type="datetime">
+                <constraints nullable="false"/>
+            </column>
+            <column name="message" type="varchar(512)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="messagetype" type="tinyint">
+                <constraints nullable="false"/>
+            </column>
+            <column name="senderid" type="int">
+                <constraints nullable="false"/>
+            </column>
+            <column name="savetime" type="datetime" defaultValueComputed="now()">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+
+        <createTable tableName="wechatlisteningkeywords">
+            <column name="id" type="int" autoIncrement="true">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="keywords" type="varchar(64)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="starttime" type="datetime">
+                <constraints nullable="false"/>
+            </column>
+            <column name="endtime" type="datetime">
+                <constraints nullable="false"/>
+            </column>
+            <column name="savetime" type="datetime" defaultValueComputed="now()">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+
+        <createTable tableName="wechatlisteningmatchedmessage">
+            <column name="id" type="int" autoIncrement="true">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="keywordsid" type="int">
+                <constraints nullable="false"/>
+            </column>
+            <column name="messageid" type="int">
+                <constraints nullable="false"/>
+            </column>
+            <column name="savetime" type="datetime" defaultValueComputed="now()">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+
+        <createIndex tableName="wechatlisteningkeywords" indexName="keywordsIndex">
+            <column name="keywords"/>
+        </createIndex>
+
+    </changeSet>
+
+    <changeSet id="2" author="andrew.bao">
+        <addForeignKeyConstraint constraintName="FK_wechatgroupmembership_groupid_to_wechatgroup_id"
+                                 baseTableName="wechatgroupmembership"
+                                 baseColumnNames="groupid"
+                                 referencedTableName="wechatgroup"
+                                 referencedColumnNames="id"/>
+
+        <addForeignKeyConstraint constraintName="FK_wechatgroupmembership_memberid_to_wechatmember_id"
+                                 baseTableName="wechatgroupmembership"
+                                 baseColumnNames="memberid"
+                                 referencedTableName="wechatmember"
+                                 referencedColumnNames="id"/>
+
+        <addForeignKeyConstraint constraintName="FK_wechatgroupmonitoring_groupid_to_wechatgroup_id"
+                                 baseTableName="wechatgroupmonitoring"
+                                 baseColumnNames="groupid"
+                                 referencedTableName="wechatgroup"
+                                 referencedColumnNames="id"/>
+
+        <addForeignKeyConstraint constraintName="FK_wechatmessage_groupid_to_wechatgroup_id"
+                                 baseTableName="wechatmessage"
+                                 baseColumnNames="groupid"
+                                 referencedTableName="wechatgroup"
+                                 referencedColumnNames="id"/>
+
+        <addForeignKeyConstraint constraintName="FK_wechatmessage_senderid_to_wechatmember_id"
+                                 baseTableName="wechatmessage"
+                                 baseColumnNames="senderid"
+                                 referencedTableName="wechatmember"
+                                 referencedColumnNames="id"/>
+    </changeSet>
+
+    <changeSet id="3" author="andrew.bao">
+        <createTable tableName="user">
+            <column name="id" type="int" autoIncrement="true">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="username" type="varchar(32)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="displayname" type="varchar(32)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="password" type="varchar(32)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="type" type="tinyint">
+                <constraints nullable="false"/>
+            </column>
+            <column name="savetime" type="datetime" defaultValueComputed="now()">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+
+    <changeSet id="4" author="andrew.bao">
+        <loadData encoding="UTF-8"
+                  file="users.csv"
+                  tableName="user">
+            <column name="address" type="varchar(255)"/>
+        </loadData>
+    </changeSet>
+
+    <changeSet id="5" author="bing.du">
+        <dropForeignKeyConstraint baseTableName="wechatgroupmembership" constraintName="FK_wechatgroupmembership_groupid_to_wechatgroup_id"/>
+        <dropForeignKeyConstraint baseTableName="wechatgroupmembership" constraintName="FK_wechatgroupmembership_memberid_to_wechatmember_id"/>
+        <dropForeignKeyConstraint baseTableName="wechatgroupmonitoring" constraintName="FK_wechatgroupmonitoring_groupid_to_wechatgroup_id"/>
+        <dropForeignKeyConstraint baseTableName="wechatmessage" constraintName="FK_wechatmessage_groupid_to_wechatgroup_id"/>
+        <dropForeignKeyConstraint baseTableName="wechatmessage" constraintName="FK_wechatmessage_senderid_to_wechatmember_id"/>
+
+        <dropColumn columnName="groupid" tableName="wechatgroupmembership"/>
+        <dropColumn columnName="memberid" tableName="wechatgroupmembership"/>
+        <addColumn tableName="wechatgroupmembership">
+            <column name="wechatgroupid" type="varchar(32)"/>
+            <column name="username" type="varchar(128)"/>
+        </addColumn>
+
+        <dropColumn columnName="groupid" tableName="wechatgroupmonitoring"/>
+        <addColumn tableName="wechatgroupmonitoring">
+            <column name="wechatgroupid" type="varchar(32)"/>
+        </addColumn>
+
+        <dropColumn columnName="groupid" tableName="wechatmessage"/>
+        <dropColumn columnName="senderid" tableName="wechatmessage"/>
+        <addColumn tableName="wechatmessage">
+            <column name="wechatgroupid" type="varchar(32)"/>
+            <column name="username" type="varchar(128)"/>
+        </addColumn>
+
+        <modifyDataType tableName="wechatlisteningmatchedmessage" columnName="messageid" newDataType="varchar(32)"/>
+    </changeSet>
+    <changeSet id="6" author="bing.du">
+        <addUniqueConstraint columnNames="wechatgroupid,username" constraintName="union_membership" tableName="wechatgroupmembership"/>
+    </changeSet>
+    <changeSet id="7" author="bing.du">
+        <addColumn tableName="wechatgroup">
+            <column name="signature" type="varchar(32)"/>
+        </addColumn>
+    </changeSet>
+
+
+</databaseChangeLog>

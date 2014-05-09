@@ -1,0 +1,4 @@
+com/nike/runclubreport/resources/GroupAPIResourceTest.class
+com/nike/runclubreport/resources/KeywordsResourceTest.class
+com/nike/runclubreport/dao/AbstractDAOTest.class
+com/nike/runclubreport/TestHelper.class

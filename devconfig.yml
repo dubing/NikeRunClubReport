@@ -1,0 +1,26 @@
+logging:
+  level: INFO
+  loggers:
+    "com.sun.jersey.api.container.filter.LoggingFilter": INFO
+  file:
+    enabled: true
+    threshold: ALL
+    currentLogFilename: ./logs/service.log
+    archivedLogFilenamePattern: ./logs/archive-log-%d.log.gz
+    archivedFileCount: 5
+    timeZone: UTC
+
+database:
+  driverClass: com.mysql.jdbc.Driver
+  user: akqa
+  password: 123456qwe
+  url: jdbc:mysql://localhost/runclubreport?useUnicode=true&characterEncoding=utf-8
+  properties:
+    charSet: UTF-8
+  maxWaitForConnection: 1s
+  validationQuery: "/* MyService Health Check */ SELECT 1"
+  minSize: 8
+  maxSize: 32
+  checkConnectionWhileIdle: false
+  checkConnectionHealthWhenIdleFor: 10s
+  closeConnectionIfIdleFor: 1 minute

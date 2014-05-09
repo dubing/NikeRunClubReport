@@ -1,0 +1,754 @@
+INFO  [2014-05-08 03:45:45,045] com.yammer.dropwizard.cli.ServerCommand: Starting Nike+ RunClub
+INFO  [2014-05-08 03:45:45,049] org.eclipse.jetty.server.Server: jetty-8.1.10.v20130312
+INFO  [2014-05-08 03:45:45,163] com.sun.jersey.server.impl.application.WebApplicationImpl: Initiating Jersey application, version 'Jersey: 1.17.1 02/28/2013 12:47 PM'
+INFO  [2014-05-08 03:45:45,234] com.yammer.dropwizard.config.Environment: The following paths were found for the configured resources:
+
+    GET     /keywords (com.nike.runclubreport.resources.KeywordsResource)
+    POST    /keywords/add (com.nike.runclubreport.resources.KeywordsResource)
+    POST    /keywords/edit (com.nike.runclubreport.resources.KeywordsResource)
+    GET     /api/groups/messages (com.nike.runclubreport.resources.GroupAPIResource)
+    POST    /security/login (com.nike.runclubreport.resources.SecurityResource)
+    GET     / (com.nike.runclubreport.resources.HomeResource)
+
+INFO  [2014-05-08 03:45:45,235] com.yammer.dropwizard.config.Environment: tasks = 
+
+    POST    /tasks/gc (com.yammer.dropwizard.tasks.GarbageCollectionTask)
+
+INFO  [2014-05-08 03:45:45,546] org.eclipse.jetty.server.AbstractConnector: Started InstrumentedBlockingChannelConnector@0.0.0.0:8080
+INFO  [2014-05-08 03:45:45,549] org.eclipse.jetty.server.AbstractConnector: Started SocketConnector@0.0.0.0:8081
+ERROR [2014-05-08 03:46:47,406] com.yammer.dropwizard.jersey.LoggingExceptionMapper: Error handling a request: 90a73cff83abacde
+! java.lang.NullPointerException: null
+! at com.nike.runclubreport.resources.GroupAPIResource.fillBatchData(GroupAPIResource.java:174) ~[classes/:na]
+! at com.nike.runclubreport.resources.GroupAPIResource.saveMessages(GroupAPIResource.java:114) ~[classes/:na]
+! at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:1.7.0_51]
+! at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57) ~[na:1.7.0_51]
+! at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:1.7.0_51]
+! at java.lang.reflect.Method.invoke(Method.java:606) ~[na:1.7.0_51]
+! at com.sun.jersey.spi.container.JavaMethodInvokerFactory$1.invoke(JavaMethodInvokerFactory.java:60) ~[jersey-server-1.17.1.jar:1.17.1]
+! at com.sun.jersey.server.impl.model.method.dispatch.AbstractResourceMethodDispatchProvider$ResponseOutInvoker._dispatch(AbstractResourceMethodDispatchProvider.java:205) ~[jersey-server-1.17.1.jar:1.17.1]
+! at com.sun.jersey.server.impl.model.method.dispatch.ResourceJavaMethodDispatcher.dispatch(ResourceJavaMethodDispatcher.java:75) ~[jersey-server-1.17.1.jar:1.17.1]
+! at com.yammer.dropwizard.jersey.OptionalResourceMethodDispatchAdapter$OptionalRequestDispatcher.dispatch(OptionalResourceMethodDispatchAdapter.java:37) ~[dropwizard-core-0.6.2.jar:na]
+! at com.sun.jersey.server.impl.uri.rules.HttpMethodRule.accept(HttpMethodRule.java:302) ~[jersey-server-1.17.1.jar:1.17.1]
+! at com.sun.jersey.server.impl.uri.rules.RightHandPathRule.accept(RightHandPathRule.java:147) ~[jersey-server-1.17.1.jar:1.17.1]
+! at com.sun.jersey.server.impl.uri.rules.ResourceObjectRule.accept(ResourceObjectRule.java:100) ~[jersey-server-1.17.1.jar:1.17.1]
+! at com.sun.jersey.server.impl.uri.rules.RightHandPathRule.accept(RightHandPathRule.java:147) ~[jersey-server-1.17.1.jar:1.17.1]
+! at com.sun.jersey.server.impl.uri.rules.RootResourceClassesRule.accept(RootResourceClassesRule.java:84) ~[jersey-server-1.17.1.jar:1.17.1]
+! at com.sun.jersey.server.impl.application.WebApplicationImpl._handleRequest(WebApplicationImpl.java:1511) [jersey-server-1.17.1.jar:1.17.1]
+! at com.sun.jersey.server.impl.application.WebApplicationImpl._handleRequest(WebApplicationImpl.java:1442) [jersey-server-1.17.1.jar:1.17.1]
+! at com.sun.jersey.server.impl.application.WebApplicationImpl.handleRequest(WebApplicationImpl.java:1391) [jersey-server-1.17.1.jar:1.17.1]
+! at com.sun.jersey.server.impl.application.WebApplicationImpl.handleRequest(WebApplicationImpl.java:1381) [jersey-server-1.17.1.jar:1.17.1]
+! at com.sun.jersey.spi.container.servlet.WebComponent.service(WebComponent.java:416) [jersey-servlet-1.17.1.jar:1.17.1]
+! at com.sun.jersey.spi.container.servlet.ServletContainer.service(ServletContainer.java:538) [jersey-servlet-1.17.1.jar:1.17.1]
+! at com.sun.jersey.spi.container.servlet.ServletContainer.service(ServletContainer.java:716) [jersey-servlet-1.17.1.jar:1.17.1]
+! at javax.servlet.http.HttpServlet.service(HttpServlet.java:848) [javax.servlet-3.0.0.v201112011016.jar:na]
+! at org.eclipse.jetty.servlet.ServletHolder.handle(ServletHolder.java:669) [jetty-servlet-8.1.10.v20130312.jar:8.1.10.v20130312]
+! at org.eclipse.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1448) [jetty-servlet-8.1.10.v20130312.jar:8.1.10.v20130312]
+! at com.yammer.dropwizard.servlets.ThreadNameFilter.doFilter(ThreadNameFilter.java:29) [dropwizard-core-0.6.2.jar:na]
+! at org.eclipse.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1419) [jetty-servlet-8.1.10.v20130312.jar:8.1.10.v20130312]
+! at org.eclipse.jetty.servlet.ServletHandler.doHandle(ServletHandler.java:455) [jetty-servlet-8.1.10.v20130312.jar:8.1.10.v20130312]
+! at org.eclipse.jetty.server.handler.ContextHandler.doHandle(ContextHandler.java:1075) [jetty-server-8.1.10.v20130312.jar:8.1.10.v20130312]
+! at org.eclipse.jetty.servlet.ServletHandler.doScope(ServletHandler.java:384) [jetty-servlet-8.1.10.v20130312.jar:8.1.10.v20130312]
+! at org.eclipse.jetty.server.handler.ContextHandler.doScope(ContextHandler.java:1009) [jetty-server-8.1.10.v20130312.jar:8.1.10.v20130312]
+! at org.eclipse.jetty.server.handler.ScopedHandler.handle(ScopedHandler.java:135) [jetty-server-8.1.10.v20130312.jar:8.1.10.v20130312]
+! at org.eclipse.jetty.server.handler.HandlerWrapper.handle(HandlerWrapper.java:116) [jetty-server-8.1.10.v20130312.jar:8.1.10.v20130312]
+! at com.yammer.metrics.jetty.InstrumentedHandler.handle(InstrumentedHandler.java:200) [metrics-jetty-2.2.0.jar:na]
+! at org.eclipse.jetty.server.handler.GzipHandler.handle(GzipHandler.java:264) [jetty-server-8.1.10.v20130312.jar:8.1.10.v20130312]
+! at com.yammer.dropwizard.jetty.BiDiGzipHandler.handle(BiDiGzipHandler.java:123) [dropwizard-core-0.6.2.jar:na]
+! at org.eclipse.jetty.server.handler.HandlerCollection.handle(HandlerCollection.java:154) [jetty-server-8.1.10.v20130312.jar:8.1.10.v20130312]
+! at org.eclipse.jetty.server.handler.HandlerWrapper.handle(HandlerWrapper.java:116) [jetty-server-8.1.10.v20130312.jar:8.1.10.v20130312]
+! at org.eclipse.jetty.server.Server.handle(Server.java:368) [jetty-server-8.1.10.v20130312.jar:8.1.10.v20130312]
+! at org.eclipse.jetty.server.AbstractHttpConnection.handleRequest(AbstractHttpConnection.java:489) [jetty-server-8.1.10.v20130312.jar:8.1.10.v20130312]
+! at org.eclipse.jetty.server.BlockingHttpConnection.handleRequest(BlockingHttpConnection.java:53) [jetty-server-8.1.10.v20130312.jar:8.1.10.v20130312]
+! at org.eclipse.jetty.server.AbstractHttpConnection.headerComplete(AbstractHttpConnection.java:942) [jetty-server-8.1.10.v20130312.jar:8.1.10.v20130312]
+! at org.eclipse.jetty.server.AbstractHttpConnection$RequestHandler.headerComplete(AbstractHttpConnection.java:1004) [jetty-server-8.1.10.v20130312.jar:8.1.10.v20130312]
+! at org.eclipse.jetty.http.HttpParser.parseNext(HttpParser.java:640) [jetty-http-8.1.10.v20130312.jar:8.1.10.v20130312]
+! at org.eclipse.jetty.http.HttpParser.parseAvailable(HttpParser.java:235) [jetty-http-8.1.10.v20130312.jar:8.1.10.v20130312]
+! at org.eclipse.jetty.server.BlockingHttpConnection.handle(BlockingHttpConnection.java:72) [jetty-server-8.1.10.v20130312.jar:8.1.10.v20130312]
+! at org.eclipse.jetty.server.nio.BlockingChannelConnector$BlockingChannelEndPoint.run(BlockingChannelConnector.java:298) [jetty-server-8.1.10.v20130312.jar:8.1.10.v20130312]
+! at org.eclipse.jetty.util.thread.QueuedThreadPool.runJob(QueuedThreadPool.java:608) [jetty-util-8.1.10.v20130312.jar:8.1.10.v20130312]
+! at org.eclipse.jetty.util.thread.QueuedThreadPool$3.run(QueuedThreadPool.java:543) [jetty-util-8.1.10.v20130312.jar:8.1.10.v20130312]
+! at java.lang.Thread.run(Thread.java:744) [na:1.7.0_51]
+INFO  [2014-05-08 03:47:10,392] com.yammer.dropwizard.cli.ServerCommand: Starting Nike+ RunClub
+INFO  [2014-05-08 03:47:10,395] org.eclipse.jetty.server.Server: jetty-8.1.10.v20130312
+INFO  [2014-05-08 03:47:10,466] com.sun.jersey.server.impl.application.WebApplicationImpl: Initiating Jersey application, version 'Jersey: 1.17.1 02/28/2013 12:47 PM'
+INFO  [2014-05-08 03:47:10,513] com.yammer.dropwizard.config.Environment: The following paths were found for the configured resources:
+
+    GET     /keywords (com.nike.runclubreport.resources.KeywordsResource)
+    POST    /keywords/add (com.nike.runclubreport.resources.KeywordsResource)
+    POST    /keywords/edit (com.nike.runclubreport.resources.KeywordsResource)
+    GET     /api/groups/messages (com.nike.runclubreport.resources.GroupAPIResource)
+    POST    /security/login (com.nike.runclubreport.resources.SecurityResource)
+    GET     / (com.nike.runclubreport.resources.HomeResource)
+
+INFO  [2014-05-08 03:47:10,513] com.yammer.dropwizard.config.Environment: tasks = 
+
+    POST    /tasks/gc (com.yammer.dropwizard.tasks.GarbageCollectionTask)
+
+INFO  [2014-05-08 03:47:10,797] org.eclipse.jetty.server.AbstractConnector: Started InstrumentedBlockingChannelConnector@0.0.0.0:8080
+INFO  [2014-05-08 03:47:10,800] org.eclipse.jetty.server.AbstractConnector: Started SocketConnector@0.0.0.0:8081
+ERROR [2014-05-08 03:50:55,450] com.yammer.dropwizard.jersey.LoggingExceptionMapper: Error handling a request: c45c332e848e14b8
+! java.lang.NullPointerException: null
+! at com.nike.runclubreport.resources.GroupAPIResource.fillBatchData(GroupAPIResource.java:174) ~[classes/:na]
+! at com.nike.runclubreport.resources.GroupAPIResource.saveMessages(GroupAPIResource.java:114) ~[classes/:na]
+! at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:1.7.0_51]
+! at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57) ~[na:1.7.0_51]
+! at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:1.7.0_51]
+! at java.lang.reflect.Method.invoke(Method.java:606) ~[na:1.7.0_51]
+! at com.sun.jersey.spi.container.JavaMethodInvokerFactory$1.invoke(JavaMethodInvokerFactory.java:60) ~[jersey-server-1.17.1.jar:1.17.1]
+! at com.sun.jersey.server.impl.model.method.dispatch.AbstractResourceMethodDispatchProvider$ResponseOutInvoker._dispatch(AbstractResourceMethodDispatchProvider.java:205) ~[jersey-server-1.17.1.jar:1.17.1]
+! at com.sun.jersey.server.impl.model.method.dispatch.ResourceJavaMethodDispatcher.dispatch(ResourceJavaMethodDispatcher.java:75) ~[jersey-server-1.17.1.jar:1.17.1]
+! at com.yammer.dropwizard.jersey.OptionalResourceMethodDispatchAdapter$OptionalRequestDispatcher.dispatch(OptionalResourceMethodDispatchAdapter.java:37) ~[dropwizard-core-0.6.2.jar:na]
+! at com.sun.jersey.server.impl.uri.rules.HttpMethodRule.accept(HttpMethodRule.java:302) ~[jersey-server-1.17.1.jar:1.17.1]
+! at com.sun.jersey.server.impl.uri.rules.RightHandPathRule.accept(RightHandPathRule.java:147) ~[jersey-server-1.17.1.jar:1.17.1]
+! at com.sun.jersey.server.impl.uri.rules.ResourceObjectRule.accept(ResourceObjectRule.java:100) ~[jersey-server-1.17.1.jar:1.17.1]
+! at com.sun.jersey.server.impl.uri.rules.RightHandPathRule.accept(RightHandPathRule.java:147) ~[jersey-server-1.17.1.jar:1.17.1]
+! at com.sun.jersey.server.impl.uri.rules.RootResourceClassesRule.accept(RootResourceClassesRule.java:84) ~[jersey-server-1.17.1.jar:1.17.1]
+! at com.sun.jersey.server.impl.application.WebApplicationImpl._handleRequest(WebApplicationImpl.java:1511) [jersey-server-1.17.1.jar:1.17.1]
+! at com.sun.jersey.server.impl.application.WebApplicationImpl._handleRequest(WebApplicationImpl.java:1442) [jersey-server-1.17.1.jar:1.17.1]
+! at com.sun.jersey.server.impl.application.WebApplicationImpl.handleRequest(WebApplicationImpl.java:1391) [jersey-server-1.17.1.jar:1.17.1]
+! at com.sun.jersey.server.impl.application.WebApplicationImpl.handleRequest(WebApplicationImpl.java:1381) [jersey-server-1.17.1.jar:1.17.1]
+! at com.sun.jersey.spi.container.servlet.WebComponent.service(WebComponent.java:416) [jersey-servlet-1.17.1.jar:1.17.1]
+! at com.sun.jersey.spi.container.servlet.ServletContainer.service(ServletContainer.java:538) [jersey-servlet-1.17.1.jar:1.17.1]
+! at com.sun.jersey.spi.container.servlet.ServletContainer.service(ServletContainer.java:716) [jersey-servlet-1.17.1.jar:1.17.1]
+! at javax.servlet.http.HttpServlet.service(HttpServlet.java:848) [javax.servlet-3.0.0.v201112011016.jar:na]
+! at org.eclipse.jetty.servlet.ServletHolder.handle(ServletHolder.java:669) [jetty-servlet-8.1.10.v20130312.jar:8.1.10.v20130312]
+! at org.eclipse.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1448) [jetty-servlet-8.1.10.v20130312.jar:8.1.10.v20130312]
+! at com.yammer.dropwizard.servlets.ThreadNameFilter.doFilter(ThreadNameFilter.java:29) [dropwizard-core-0.6.2.jar:na]
+! at org.eclipse.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1419) [jetty-servlet-8.1.10.v20130312.jar:8.1.10.v20130312]
+! at org.eclipse.jetty.servlet.ServletHandler.doHandle(ServletHandler.java:455) [jetty-servlet-8.1.10.v20130312.jar:8.1.10.v20130312]
+! at org.eclipse.jetty.server.handler.ContextHandler.doHandle(ContextHandler.java:1075) [jetty-server-8.1.10.v20130312.jar:8.1.10.v20130312]
+! at org.eclipse.jetty.servlet.ServletHandler.doScope(ServletHandler.java:384) [jetty-servlet-8.1.10.v20130312.jar:8.1.10.v20130312]
+! at org.eclipse.jetty.server.handler.ContextHandler.doScope(ContextHandler.java:1009) [jetty-server-8.1.10.v20130312.jar:8.1.10.v20130312]
+! at org.eclipse.jetty.server.handler.ScopedHandler.handle(ScopedHandler.java:135) [jetty-server-8.1.10.v20130312.jar:8.1.10.v20130312]
+! at org.eclipse.jetty.server.handler.HandlerWrapper.handle(HandlerWrapper.java:116) [jetty-server-8.1.10.v20130312.jar:8.1.10.v20130312]
+! at com.yammer.metrics.jetty.InstrumentedHandler.handle(InstrumentedHandler.java:200) [metrics-jetty-2.2.0.jar:na]
+! at org.eclipse.jetty.server.handler.GzipHandler.handle(GzipHandler.java:264) [jetty-server-8.1.10.v20130312.jar:8.1.10.v20130312]
+! at com.yammer.dropwizard.jetty.BiDiGzipHandler.handle(BiDiGzipHandler.java:123) [dropwizard-core-0.6.2.jar:na]
+! at org.eclipse.jetty.server.handler.HandlerCollection.handle(HandlerCollection.java:154) [jetty-server-8.1.10.v20130312.jar:8.1.10.v20130312]
+! at org.eclipse.jetty.server.handler.HandlerWrapper.handle(HandlerWrapper.java:116) [jetty-server-8.1.10.v20130312.jar:8.1.10.v20130312]
+! at org.eclipse.jetty.server.Server.handle(Server.java:368) [jetty-server-8.1.10.v20130312.jar:8.1.10.v20130312]
+! at org.eclipse.jetty.server.AbstractHttpConnection.handleRequest(AbstractHttpConnection.java:489) [jetty-server-8.1.10.v20130312.jar:8.1.10.v20130312]
+! at org.eclipse.jetty.server.BlockingHttpConnection.handleRequest(BlockingHttpConnection.java:53) [jetty-server-8.1.10.v20130312.jar:8.1.10.v20130312]
+! at org.eclipse.jetty.server.AbstractHttpConnection.headerComplete(AbstractHttpConnection.java:942) [jetty-server-8.1.10.v20130312.jar:8.1.10.v20130312]
+! at org.eclipse.jetty.server.AbstractHttpConnection$RequestHandler.headerComplete(AbstractHttpConnection.java:1004) [jetty-server-8.1.10.v20130312.jar:8.1.10.v20130312]
+! at org.eclipse.jetty.http.HttpParser.parseNext(HttpParser.java:640) [jetty-http-8.1.10.v20130312.jar:8.1.10.v20130312]
+! at org.eclipse.jetty.http.HttpParser.parseAvailable(HttpParser.java:235) [jetty-http-8.1.10.v20130312.jar:8.1.10.v20130312]
+! at org.eclipse.jetty.server.BlockingHttpConnection.handle(BlockingHttpConnection.java:72) [jetty-server-8.1.10.v20130312.jar:8.1.10.v20130312]
+! at org.eclipse.jetty.server.nio.BlockingChannelConnector$BlockingChannelEndPoint.run(BlockingChannelConnector.java:298) [jetty-server-8.1.10.v20130312.jar:8.1.10.v20130312]
+! at org.eclipse.jetty.util.thread.QueuedThreadPool.runJob(QueuedThreadPool.java:608) [jetty-util-8.1.10.v20130312.jar:8.1.10.v20130312]
+! at org.eclipse.jetty.util.thread.QueuedThreadPool$3.run(QueuedThreadPool.java:543) [jetty-util-8.1.10.v20130312.jar:8.1.10.v20130312]
+! at java.lang.Thread.run(Thread.java:744) [na:1.7.0_51]
+INFO  [2014-05-08 03:52:37,431] com.yammer.dropwizard.cli.ServerCommand: Starting Nike+ RunClub
+INFO  [2014-05-08 03:52:37,435] org.eclipse.jetty.server.Server: jetty-8.1.10.v20130312
+INFO  [2014-05-08 03:52:37,529] com.sun.jersey.server.impl.application.WebApplicationImpl: Initiating Jersey application, version 'Jersey: 1.17.1 02/28/2013 12:47 PM'
+INFO  [2014-05-08 03:52:37,586] com.yammer.dropwizard.config.Environment: The following paths were found for the configured resources:
+
+    GET     /keywords (com.nike.runclubreport.resources.KeywordsResource)
+    POST    /keywords/add (com.nike.runclubreport.resources.KeywordsResource)
+    POST    /keywords/edit (com.nike.runclubreport.resources.KeywordsResource)
+    GET     /api/groups/messages (com.nike.runclubreport.resources.GroupAPIResource)
+    POST    /security/login (com.nike.runclubreport.resources.SecurityResource)
+    GET     / (com.nike.runclubreport.resources.HomeResource)
+
+INFO  [2014-05-08 03:52:37,586] com.yammer.dropwizard.config.Environment: tasks = 
+
+    POST    /tasks/gc (com.yammer.dropwizard.tasks.GarbageCollectionTask)
+
+INFO  [2014-05-08 03:52:37,892] org.eclipse.jetty.server.AbstractConnector: Started InstrumentedBlockingChannelConnector@0.0.0.0:8080
+INFO  [2014-05-08 03:52:37,895] org.eclipse.jetty.server.AbstractConnector: Started SocketConnector@0.0.0.0:8081
+ERROR [2014-05-08 03:55:04,320] com.yammer.dropwizard.jersey.LoggingExceptionMapper: Error handling a request: 2bfa23b563cfcbfd
+! org.skife.jdbi.v2.exceptions.UnableToExecuteStatementException: com.mysql.jdbc.exceptions.jdbc4.MySQLSyntaxErrorException: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '<userNameList>)' at line 1 [statement:"delete from weChatGroupMemberShip where userName in (<userNameList>)", located:"delete from weChatGroupMemberShip where userName in (<userNameList>)", rewritten:"/* IWeChatGroupMemberShipDAO.deleteByUserNames */ delete from weChatGroupMemberShip where userName in (<userNameList>)", arguments:{ positional:{}, named:{}, finder:[]}]
+! at org.skife.jdbi.v2.SQLStatement.internalExecute(SQLStatement.java:1306) ~[jdbi-2.41.jar:na]
+! at org.skife.jdbi.v2.Update.execute(Update.java:57) ~[jdbi-2.41.jar:na]
+! at org.skife.jdbi.v2.sqlobject.UpdateHandler$2.value(UpdateHandler.java:45) ~[jdbi-2.41.jar:na]
+! at org.skife.jdbi.v2.sqlobject.UpdateHandler.invoke(UpdateHandler.java:57) ~[jdbi-2.41.jar:na]
+! at org.skife.jdbi.v2.sqlobject.SqlObject.invoke(SqlObject.java:147) ~[jdbi-2.41.jar:na]
+! at org.skife.jdbi.v2.sqlobject.SqlObject$1.intercept(SqlObject.java:60) ~[jdbi-2.41.jar:na]
+! at org.skife.jdbi.v2.sqlobject.CloseInternalDoNotUseThisClass$$EnhancerByCGLIB$$8555cfef.deleteByUserNames(<generated>) ~[jdbi-2.41.jar:na]
+! at com.nike.runclubreport.service.WeChatGroupMemberShipService.deleteMemberShipByUserNames(WeChatGroupMemberShipService.java:33) ~[classes/:na]
+! at com.nike.runclubreport.resources.GroupAPIResource.deleteOldMemberShip(GroupAPIResource.java:289) ~[classes/:na]
+! at com.nike.runclubreport.resources.GroupAPIResource.storeWeChatMemberShip(GroupAPIResource.java:213) ~[classes/:na]
+! at com.nike.runclubreport.resources.GroupAPIResource.saveMessages(GroupAPIResource.java:118) ~[classes/:na]
+! at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:1.7.0_51]
+! at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57) ~[na:1.7.0_51]
+! at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:1.7.0_51]
+! at java.lang.reflect.Method.invoke(Method.java:606) ~[na:1.7.0_51]
+! at com.sun.jersey.spi.container.JavaMethodInvokerFactory$1.invoke(JavaMethodInvokerFactory.java:60) ~[jersey-server-1.17.1.jar:1.17.1]
+! at com.sun.jersey.server.impl.model.method.dispatch.AbstractResourceMethodDispatchProvider$ResponseOutInvoker._dispatch(AbstractResourceMethodDispatchProvider.java:205) ~[jersey-server-1.17.1.jar:1.17.1]
+! at com.sun.jersey.server.impl.model.method.dispatch.ResourceJavaMethodDispatcher.dispatch(ResourceJavaMethodDispatcher.java:75) ~[jersey-server-1.17.1.jar:1.17.1]
+! at com.yammer.dropwizard.jersey.OptionalResourceMethodDispatchAdapter$OptionalRequestDispatcher.dispatch(OptionalResourceMethodDispatchAdapter.java:37) ~[dropwizard-core-0.6.2.jar:na]
+! at com.sun.jersey.server.impl.uri.rules.HttpMethodRule.accept(HttpMethodRule.java:302) ~[jersey-server-1.17.1.jar:1.17.1]
+! at com.sun.jersey.server.impl.uri.rules.RightHandPathRule.accept(RightHandPathRule.java:147) ~[jersey-server-1.17.1.jar:1.17.1]
+! at com.sun.jersey.server.impl.uri.rules.ResourceObjectRule.accept(ResourceObjectRule.java:100) ~[jersey-server-1.17.1.jar:1.17.1]
+! at com.sun.jersey.server.impl.uri.rules.RightHandPathRule.accept(RightHandPathRule.java:147) ~[jersey-server-1.17.1.jar:1.17.1]
+! at com.sun.jersey.server.impl.uri.rules.RootResourceClassesRule.accept(RootResourceClassesRule.java:84) ~[jersey-server-1.17.1.jar:1.17.1]
+! at com.sun.jersey.server.impl.application.WebApplicationImpl._handleRequest(WebApplicationImpl.java:1511) [jersey-server-1.17.1.jar:1.17.1]
+! at com.sun.jersey.server.impl.application.WebApplicationImpl._handleRequest(WebApplicationImpl.java:1442) [jersey-server-1.17.1.jar:1.17.1]
+! at com.sun.jersey.server.impl.application.WebApplicationImpl.handleRequest(WebApplicationImpl.java:1391) [jersey-server-1.17.1.jar:1.17.1]
+! at com.sun.jersey.server.impl.application.WebApplicationImpl.handleRequest(WebApplicationImpl.java:1381) [jersey-server-1.17.1.jar:1.17.1]
+! at com.sun.jersey.spi.container.servlet.WebComponent.service(WebComponent.java:416) [jersey-servlet-1.17.1.jar:1.17.1]
+! at com.sun.jersey.spi.container.servlet.ServletContainer.service(ServletContainer.java:538) [jersey-servlet-1.17.1.jar:1.17.1]
+! at com.sun.jersey.spi.container.servlet.ServletContainer.service(ServletContainer.java:716) [jersey-servlet-1.17.1.jar:1.17.1]
+! at javax.servlet.http.HttpServlet.service(HttpServlet.java:848) [javax.servlet-3.0.0.v201112011016.jar:na]
+! at org.eclipse.jetty.servlet.ServletHolder.handle(ServletHolder.java:669) [jetty-servlet-8.1.10.v20130312.jar:8.1.10.v20130312]
+! at org.eclipse.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1448) [jetty-servlet-8.1.10.v20130312.jar:8.1.10.v20130312]
+! at com.yammer.dropwizard.servlets.ThreadNameFilter.doFilter(ThreadNameFilter.java:29) [dropwizard-core-0.6.2.jar:na]
+! at org.eclipse.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1419) [jetty-servlet-8.1.10.v20130312.jar:8.1.10.v20130312]
+! at org.eclipse.jetty.servlet.ServletHandler.doHandle(ServletHandler.java:455) [jetty-servlet-8.1.10.v20130312.jar:8.1.10.v20130312]
+! at org.eclipse.jetty.server.handler.ContextHandler.doHandle(ContextHandler.java:1075) [jetty-server-8.1.10.v20130312.jar:8.1.10.v20130312]
+! at org.eclipse.jetty.servlet.ServletHandler.doScope(ServletHandler.java:384) [jetty-servlet-8.1.10.v20130312.jar:8.1.10.v20130312]
+! at org.eclipse.jetty.server.handler.ContextHandler.doScope(ContextHandler.java:1009) [jetty-server-8.1.10.v20130312.jar:8.1.10.v20130312]
+! at org.eclipse.jetty.server.handler.ScopedHandler.handle(ScopedHandler.java:135) [jetty-server-8.1.10.v20130312.jar:8.1.10.v20130312]
+! at org.eclipse.jetty.server.handler.HandlerWrapper.handle(HandlerWrapper.java:116) [jetty-server-8.1.10.v20130312.jar:8.1.10.v20130312]
+! at com.yammer.metrics.jetty.InstrumentedHandler.handle(InstrumentedHandler.java:200) [metrics-jetty-2.2.0.jar:na]
+! at org.eclipse.jetty.server.handler.GzipHandler.handle(GzipHandler.java:264) [jetty-server-8.1.10.v20130312.jar:8.1.10.v20130312]
+! at com.yammer.dropwizard.jetty.BiDiGzipHandler.handle(BiDiGzipHandler.java:123) [dropwizard-core-0.6.2.jar:na]
+! at org.eclipse.jetty.server.handler.HandlerCollection.handle(HandlerCollection.java:154) [jetty-server-8.1.10.v20130312.jar:8.1.10.v20130312]
+! at org.eclipse.jetty.server.handler.HandlerWrapper.handle(HandlerWrapper.java:116) [jetty-server-8.1.10.v20130312.jar:8.1.10.v20130312]
+! at org.eclipse.jetty.server.Server.handle(Server.java:368) [jetty-server-8.1.10.v20130312.jar:8.1.10.v20130312]
+! at org.eclipse.jetty.server.AbstractHttpConnection.handleRequest(AbstractHttpConnection.java:489) [jetty-server-8.1.10.v20130312.jar:8.1.10.v20130312]
+! at org.eclipse.jetty.server.BlockingHttpConnection.handleRequest(BlockingHttpConnection.java:53) [jetty-server-8.1.10.v20130312.jar:8.1.10.v20130312]
+! at org.eclipse.jetty.server.AbstractHttpConnection.headerComplete(AbstractHttpConnection.java:942) [jetty-server-8.1.10.v20130312.jar:8.1.10.v20130312]
+! at org.eclipse.jetty.server.AbstractHttpConnection$RequestHandler.headerComplete(AbstractHttpConnection.java:1004) [jetty-server-8.1.10.v20130312.jar:8.1.10.v20130312]
+! at org.eclipse.jetty.http.HttpParser.parseNext(HttpParser.java:640) [jetty-http-8.1.10.v20130312.jar:8.1.10.v20130312]
+! at org.eclipse.jetty.http.HttpParser.parseAvailable(HttpParser.java:235) [jetty-http-8.1.10.v20130312.jar:8.1.10.v20130312]
+! at org.eclipse.jetty.server.BlockingHttpConnection.handle(BlockingHttpConnection.java:72) [jetty-server-8.1.10.v20130312.jar:8.1.10.v20130312]
+! at org.eclipse.jetty.server.nio.BlockingChannelConnector$BlockingChannelEndPoint.run(BlockingChannelConnector.java:298) [jetty-server-8.1.10.v20130312.jar:8.1.10.v20130312]
+! at org.eclipse.jetty.util.thread.QueuedThreadPool.runJob(QueuedThreadPool.java:608) [jetty-util-8.1.10.v20130312.jar:8.1.10.v20130312]
+! at org.eclipse.jetty.util.thread.QueuedThreadPool$3.run(QueuedThreadPool.java:543) [jetty-util-8.1.10.v20130312.jar:8.1.10.v20130312]
+! at java.lang.Thread.run(Thread.java:744) [na:1.7.0_51]
+Caused by: ! com.mysql.jdbc.exceptions.jdbc4.MySQLSyntaxErrorException: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '<userNameList>)' at line 1
+! at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method) ~[na:1.7.0_51]
+! at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:57) ~[na:1.7.0_51]
+! at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45) ~[na:1.7.0_51]
+! at java.lang.reflect.Constructor.newInstance(Constructor.java:526) ~[na:1.7.0_51]
+! at com.mysql.jdbc.Util.handleNewInstance(Util.java:411) ~[mysql-connector-java-5.1.26.jar:na]
+! at com.mysql.jdbc.Util.getInstance(Util.java:386) ~[mysql-connector-java-5.1.26.jar:na]
+! at com.mysql.jdbc.SQLError.createSQLException(SQLError.java:1054) ~[mysql-connector-java-5.1.26.jar:na]
+! at com.mysql.jdbc.MysqlIO.checkErrorPacket(MysqlIO.java:4190) ~[mysql-connector-java-5.1.26.jar:na]
+! at com.mysql.jdbc.MysqlIO.checkErrorPacket(MysqlIO.java:4122) ~[mysql-connector-java-5.1.26.jar:na]
+! at com.mysql.jdbc.MysqlIO.sendCommand(MysqlIO.java:2570) ~[mysql-connector-java-5.1.26.jar:na]
+! at com.mysql.jdbc.MysqlIO.sqlQueryDirect(MysqlIO.java:2731) ~[mysql-connector-java-5.1.26.jar:na]
+! at com.mysql.jdbc.ConnectionImpl.execSQL(ConnectionImpl.java:2818) ~[mysql-connector-java-5.1.26.jar:na]
+! at com.mysql.jdbc.PreparedStatement.executeInternal(PreparedStatement.java:2157) ~[mysql-connector-java-5.1.26.jar:na]
+! at com.mysql.jdbc.PreparedStatement.execute(PreparedStatement.java:1379) ~[mysql-connector-java-5.1.26.jar:na]
+! at org.apache.tomcat.dbcp.dbcp.DelegatingPreparedStatement.execute(DelegatingPreparedStatement.java:172) ~[tomcat-dbcp-7.0.37.jar:7.0.37]
+! at org.apache.tomcat.dbcp.dbcp.DelegatingPreparedStatement.execute(DelegatingPreparedStatement.java:172) ~[tomcat-dbcp-7.0.37.jar:7.0.37]
+! at org.skife.jdbi.v2.SQLStatement.internalExecute(SQLStatement.java:1300) ~[jdbi-2.41.jar:na]
+!... 58 common frames omitted
+INFO  [2014-05-08 05:54:38,480] com.yammer.dropwizard.cli.ServerCommand: Starting Nike+ RunClub
+INFO  [2014-05-08 05:54:38,483] org.eclipse.jetty.server.Server: jetty-8.1.10.v20130312
+INFO  [2014-05-08 05:54:38,558] com.sun.jersey.server.impl.application.WebApplicationImpl: Initiating Jersey application, version 'Jersey: 1.17.1 02/28/2013 12:47 PM'
+INFO  [2014-05-08 05:54:38,610] com.yammer.dropwizard.config.Environment: The following paths were found for the configured resources:
+
+    GET     /keywords (com.nike.runclubreport.resources.KeywordsResource)
+    POST    /keywords/add (com.nike.runclubreport.resources.KeywordsResource)
+    POST    /keywords/edit (com.nike.runclubreport.resources.KeywordsResource)
+    GET     /api/groups/messages (com.nike.runclubreport.resources.GroupAPIResource)
+    POST    /security/login (com.nike.runclubreport.resources.SecurityResource)
+    GET     / (com.nike.runclubreport.resources.HomeResource)
+
+INFO  [2014-05-08 05:54:38,610] com.yammer.dropwizard.config.Environment: tasks = 
+
+    POST    /tasks/gc (com.yammer.dropwizard.tasks.GarbageCollectionTask)
+
+INFO  [2014-05-08 05:54:38,881] org.eclipse.jetty.server.AbstractConnector: Started InstrumentedBlockingChannelConnector@0.0.0.0:8080
+INFO  [2014-05-08 05:54:38,884] org.eclipse.jetty.server.AbstractConnector: Started SocketConnector@0.0.0.0:8081
+ERROR [2014-05-08 05:59:59,977] com.yammer.dropwizard.jersey.LoggingExceptionMapper: Error handling a request: 069dc5b0498f00b0
+! org.skife.jdbi.v2.exceptions.UnableToExecuteStatementException: com.mysql.jdbc.exceptions.jdbc4.MySQLSyntaxErrorException: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ')' at line 1 [statement:"delete from weChatGroupMemberShip where userName in (<userNameList>)", located:"delete from weChatGroupMemberShip where userName in ()", rewritten:"/* IWeChatGroupMemberShipDAO.deleteByUserNames */ delete from weChatGroupMemberShip where userName in ()", arguments:{ positional:{}, named:{}, finder:[]}]
+! at org.skife.jdbi.v2.SQLStatement.internalExecute(SQLStatement.java:1306) ~[jdbi-2.41.jar:na]
+! at org.skife.jdbi.v2.Update.execute(Update.java:57) ~[jdbi-2.41.jar:na]
+! at org.skife.jdbi.v2.sqlobject.UpdateHandler$2.value(UpdateHandler.java:45) ~[jdbi-2.41.jar:na]
+! at org.skife.jdbi.v2.sqlobject.UpdateHandler.invoke(UpdateHandler.java:57) ~[jdbi-2.41.jar:na]
+! at org.skife.jdbi.v2.sqlobject.SqlObject.invoke(SqlObject.java:147) ~[jdbi-2.41.jar:na]
+! at org.skife.jdbi.v2.sqlobject.SqlObject$1.intercept(SqlObject.java:60) ~[jdbi-2.41.jar:na]
+! at org.skife.jdbi.v2.sqlobject.CloseInternalDoNotUseThisClass$$EnhancerByCGLIB$$be51f2dd.deleteByUserNames(<generated>) ~[jdbi-2.41.jar:na]
+! at com.nike.runclubreport.service.WeChatGroupMemberShipService.deleteMemberShipByUserNames(WeChatGroupMemberShipService.java:33) ~[classes/:na]
+! at com.nike.runclubreport.resources.GroupAPIResource.deleteOldMemberShip(GroupAPIResource.java:289) ~[classes/:na]
+! at com.nike.runclubreport.resources.GroupAPIResource.storeWeChatMemberShip(GroupAPIResource.java:213) ~[classes/:na]
+! at com.nike.runclubreport.resources.GroupAPIResource.saveMessages(GroupAPIResource.java:118) ~[classes/:na]
+! at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:1.7.0_51]
+! at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57) ~[na:1.7.0_51]
+! at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:1.7.0_51]
+! at java.lang.reflect.Method.invoke(Method.java:606) ~[na:1.7.0_51]
+! at com.sun.jersey.spi.container.JavaMethodInvokerFactory$1.invoke(JavaMethodInvokerFactory.java:60) ~[jersey-server-1.17.1.jar:1.17.1]
+! at com.sun.jersey.server.impl.model.method.dispatch.AbstractResourceMethodDispatchProvider$ResponseOutInvoker._dispatch(AbstractResourceMethodDispatchProvider.java:205) ~[jersey-server-1.17.1.jar:1.17.1]
+! at com.sun.jersey.server.impl.model.method.dispatch.ResourceJavaMethodDispatcher.dispatch(ResourceJavaMethodDispatcher.java:75) ~[jersey-server-1.17.1.jar:1.17.1]
+! at com.yammer.dropwizard.jersey.OptionalResourceMethodDispatchAdapter$OptionalRequestDispatcher.dispatch(OptionalResourceMethodDispatchAdapter.java:37) ~[dropwizard-core-0.6.2.jar:na]
+! at com.sun.jersey.server.impl.uri.rules.HttpMethodRule.accept(HttpMethodRule.java:302) ~[jersey-server-1.17.1.jar:1.17.1]
+! at com.sun.jersey.server.impl.uri.rules.RightHandPathRule.accept(RightHandPathRule.java:147) ~[jersey-server-1.17.1.jar:1.17.1]
+! at com.sun.jersey.server.impl.uri.rules.ResourceObjectRule.accept(ResourceObjectRule.java:100) ~[jersey-server-1.17.1.jar:1.17.1]
+! at com.sun.jersey.server.impl.uri.rules.RightHandPathRule.accept(RightHandPathRule.java:147) ~[jersey-server-1.17.1.jar:1.17.1]
+! at com.sun.jersey.server.impl.uri.rules.RootResourceClassesRule.accept(RootResourceClassesRule.java:84) ~[jersey-server-1.17.1.jar:1.17.1]
+! at com.sun.jersey.server.impl.application.WebApplicationImpl._handleRequest(WebApplicationImpl.java:1511) [jersey-server-1.17.1.jar:1.17.1]
+! at com.sun.jersey.server.impl.application.WebApplicationImpl._handleRequest(WebApplicationImpl.java:1442) [jersey-server-1.17.1.jar:1.17.1]
+! at com.sun.jersey.server.impl.application.WebApplicationImpl.handleRequest(WebApplicationImpl.java:1391) [jersey-server-1.17.1.jar:1.17.1]
+! at com.sun.jersey.server.impl.application.WebApplicationImpl.handleRequest(WebApplicationImpl.java:1381) [jersey-server-1.17.1.jar:1.17.1]
+! at com.sun.jersey.spi.container.servlet.WebComponent.service(WebComponent.java:416) [jersey-servlet-1.17.1.jar:1.17.1]
+! at com.sun.jersey.spi.container.servlet.ServletContainer.service(ServletContainer.java:538) [jersey-servlet-1.17.1.jar:1.17.1]
+! at com.sun.jersey.spi.container.servlet.ServletContainer.service(ServletContainer.java:716) [jersey-servlet-1.17.1.jar:1.17.1]
+! at javax.servlet.http.HttpServlet.service(HttpServlet.java:848) [javax.servlet-3.0.0.v201112011016.jar:na]
+! at org.eclipse.jetty.servlet.ServletHolder.handle(ServletHolder.java:669) [jetty-servlet-8.1.10.v20130312.jar:8.1.10.v20130312]
+! at org.eclipse.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1448) [jetty-servlet-8.1.10.v20130312.jar:8.1.10.v20130312]
+! at com.yammer.dropwizard.servlets.ThreadNameFilter.doFilter(ThreadNameFilter.java:29) [dropwizard-core-0.6.2.jar:na]
+! at org.eclipse.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1419) [jetty-servlet-8.1.10.v20130312.jar:8.1.10.v20130312]
+! at org.eclipse.jetty.servlet.ServletHandler.doHandle(ServletHandler.java:455) [jetty-servlet-8.1.10.v20130312.jar:8.1.10.v20130312]
+! at org.eclipse.jetty.server.handler.ContextHandler.doHandle(ContextHandler.java:1075) [jetty-server-8.1.10.v20130312.jar:8.1.10.v20130312]
+! at org.eclipse.jetty.servlet.ServletHandler.doScope(ServletHandler.java:384) [jetty-servlet-8.1.10.v20130312.jar:8.1.10.v20130312]
+! at org.eclipse.jetty.server.handler.ContextHandler.doScope(ContextHandler.java:1009) [jetty-server-8.1.10.v20130312.jar:8.1.10.v20130312]
+! at org.eclipse.jetty.server.handler.ScopedHandler.handle(ScopedHandler.java:135) [jetty-server-8.1.10.v20130312.jar:8.1.10.v20130312]
+! at org.eclipse.jetty.server.handler.HandlerWrapper.handle(HandlerWrapper.java:116) [jetty-server-8.1.10.v20130312.jar:8.1.10.v20130312]
+! at com.yammer.metrics.jetty.InstrumentedHandler.handle(InstrumentedHandler.java:200) [metrics-jetty-2.2.0.jar:na]
+! at org.eclipse.jetty.server.handler.GzipHandler.handle(GzipHandler.java:264) [jetty-server-8.1.10.v20130312.jar:8.1.10.v20130312]
+! at com.yammer.dropwizard.jetty.BiDiGzipHandler.handle(BiDiGzipHandler.java:123) [dropwizard-core-0.6.2.jar:na]
+! at org.eclipse.jetty.server.handler.HandlerCollection.handle(HandlerCollection.java:154) [jetty-server-8.1.10.v20130312.jar:8.1.10.v20130312]
+! at org.eclipse.jetty.server.handler.HandlerWrapper.handle(HandlerWrapper.java:116) [jetty-server-8.1.10.v20130312.jar:8.1.10.v20130312]
+! at org.eclipse.jetty.server.Server.handle(Server.java:368) [jetty-server-8.1.10.v20130312.jar:8.1.10.v20130312]
+! at org.eclipse.jetty.server.AbstractHttpConnection.handleRequest(AbstractHttpConnection.java:489) [jetty-server-8.1.10.v20130312.jar:8.1.10.v20130312]
+! at org.eclipse.jetty.server.BlockingHttpConnection.handleRequest(BlockingHttpConnection.java:53) [jetty-server-8.1.10.v20130312.jar:8.1.10.v20130312]
+! at org.eclipse.jetty.server.AbstractHttpConnection.headerComplete(AbstractHttpConnection.java:942) [jetty-server-8.1.10.v20130312.jar:8.1.10.v20130312]
+! at org.eclipse.jetty.server.AbstractHttpConnection$RequestHandler.headerComplete(AbstractHttpConnection.java:1004) [jetty-server-8.1.10.v20130312.jar:8.1.10.v20130312]
+! at org.eclipse.jetty.http.HttpParser.parseNext(HttpParser.java:640) [jetty-http-8.1.10.v20130312.jar:8.1.10.v20130312]
+! at org.eclipse.jetty.http.HttpParser.parseAvailable(HttpParser.java:235) [jetty-http-8.1.10.v20130312.jar:8.1.10.v20130312]
+! at org.eclipse.jetty.server.BlockingHttpConnection.handle(BlockingHttpConnection.java:72) [jetty-server-8.1.10.v20130312.jar:8.1.10.v20130312]
+! at org.eclipse.jetty.server.nio.BlockingChannelConnector$BlockingChannelEndPoint.run(BlockingChannelConnector.java:298) [jetty-server-8.1.10.v20130312.jar:8.1.10.v20130312]
+! at org.eclipse.jetty.util.thread.QueuedThreadPool.runJob(QueuedThreadPool.java:608) [jetty-util-8.1.10.v20130312.jar:8.1.10.v20130312]
+! at org.eclipse.jetty.util.thread.QueuedThreadPool$3.run(QueuedThreadPool.java:543) [jetty-util-8.1.10.v20130312.jar:8.1.10.v20130312]
+! at java.lang.Thread.run(Thread.java:744) [na:1.7.0_51]
+Caused by: ! com.mysql.jdbc.exceptions.jdbc4.MySQLSyntaxErrorException: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ')' at line 1
+! at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method) ~[na:1.7.0_51]
+! at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:57) ~[na:1.7.0_51]
+! at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45) ~[na:1.7.0_51]
+! at java.lang.reflect.Constructor.newInstance(Constructor.java:526) ~[na:1.7.0_51]
+! at com.mysql.jdbc.Util.handleNewInstance(Util.java:411) ~[mysql-connector-java-5.1.26.jar:na]
+! at com.mysql.jdbc.Util.getInstance(Util.java:386) ~[mysql-connector-java-5.1.26.jar:na]
+! at com.mysql.jdbc.SQLError.createSQLException(SQLError.java:1054) ~[mysql-connector-java-5.1.26.jar:na]
+! at com.mysql.jdbc.MysqlIO.checkErrorPacket(MysqlIO.java:4190) ~[mysql-connector-java-5.1.26.jar:na]
+! at com.mysql.jdbc.MysqlIO.checkErrorPacket(MysqlIO.java:4122) ~[mysql-connector-java-5.1.26.jar:na]
+! at com.mysql.jdbc.MysqlIO.sendCommand(MysqlIO.java:2570) ~[mysql-connector-java-5.1.26.jar:na]
+! at com.mysql.jdbc.MysqlIO.sqlQueryDirect(MysqlIO.java:2731) ~[mysql-connector-java-5.1.26.jar:na]
+! at com.mysql.jdbc.ConnectionImpl.execSQL(ConnectionImpl.java:2818) ~[mysql-connector-java-5.1.26.jar:na]
+! at com.mysql.jdbc.PreparedStatement.executeInternal(PreparedStatement.java:2157) ~[mysql-connector-java-5.1.26.jar:na]
+! at com.mysql.jdbc.PreparedStatement.execute(PreparedStatement.java:1379) ~[mysql-connector-java-5.1.26.jar:na]
+! at org.apache.tomcat.dbcp.dbcp.DelegatingPreparedStatement.execute(DelegatingPreparedStatement.java:172) ~[tomcat-dbcp-7.0.37.jar:7.0.37]
+! at org.apache.tomcat.dbcp.dbcp.DelegatingPreparedStatement.execute(DelegatingPreparedStatement.java:172) ~[tomcat-dbcp-7.0.37.jar:7.0.37]
+! at org.skife.jdbi.v2.SQLStatement.internalExecute(SQLStatement.java:1300) ~[jdbi-2.41.jar:na]
+!... 58 common frames omitted
+INFO  [2014-05-08 06:00:22,212] com.yammer.dropwizard.cli.ServerCommand: Starting Nike+ RunClub
+INFO  [2014-05-08 06:00:22,215] org.eclipse.jetty.server.Server: jetty-8.1.10.v20130312
+INFO  [2014-05-08 06:00:22,287] com.sun.jersey.server.impl.application.WebApplicationImpl: Initiating Jersey application, version 'Jersey: 1.17.1 02/28/2013 12:47 PM'
+INFO  [2014-05-08 06:00:22,336] com.yammer.dropwizard.config.Environment: The following paths were found for the configured resources:
+
+    GET     /keywords (com.nike.runclubreport.resources.KeywordsResource)
+    POST    /keywords/add (com.nike.runclubreport.resources.KeywordsResource)
+    POST    /keywords/edit (com.nike.runclubreport.resources.KeywordsResource)
+    GET     /api/groups/messages (com.nike.runclubreport.resources.GroupAPIResource)
+    POST    /security/login (com.nike.runclubreport.resources.SecurityResource)
+    GET     / (com.nike.runclubreport.resources.HomeResource)
+
+INFO  [2014-05-08 06:00:22,336] com.yammer.dropwizard.config.Environment: tasks = 
+
+    POST    /tasks/gc (com.yammer.dropwizard.tasks.GarbageCollectionTask)
+
+INFO  [2014-05-08 06:00:22,609] org.eclipse.jetty.server.AbstractConnector: Started InstrumentedBlockingChannelConnector@0.0.0.0:8080
+INFO  [2014-05-08 06:00:22,611] org.eclipse.jetty.server.AbstractConnector: Started SocketConnector@0.0.0.0:8081
+ERROR [2014-05-08 06:00:54,776] com.yammer.dropwizard.jersey.LoggingExceptionMapper: Error handling a request: 8c7dddd4e0344694
+! org.skife.jdbi.v2.exceptions.UnableToExecuteStatementException: com.mysql.jdbc.exceptions.jdbc4.MySQLSyntaxErrorException: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ')' at line 1 [statement:"delete from weChatGroupMemberShip where userName in (<userNameList>)", located:"delete from weChatGroupMemberShip where userName in ()", rewritten:"/* IWeChatGroupMemberShipDAO.deleteByUserNames */ delete from weChatGroupMemberShip where userName in ()", arguments:{ positional:{}, named:{}, finder:[]}]
+! at org.skife.jdbi.v2.SQLStatement.internalExecute(SQLStatement.java:1306) ~[jdbi-2.41.jar:na]
+! at org.skife.jdbi.v2.Update.execute(Update.java:57) ~[jdbi-2.41.jar:na]
+! at org.skife.jdbi.v2.sqlobject.UpdateHandler$2.value(UpdateHandler.java:45) ~[jdbi-2.41.jar:na]
+! at org.skife.jdbi.v2.sqlobject.UpdateHandler.invoke(UpdateHandler.java:57) ~[jdbi-2.41.jar:na]
+! at org.skife.jdbi.v2.sqlobject.SqlObject.invoke(SqlObject.java:147) ~[jdbi-2.41.jar:na]
+! at org.skife.jdbi.v2.sqlobject.SqlObject$1.intercept(SqlObject.java:60) ~[jdbi-2.41.jar:na]
+! at org.skife.jdbi.v2.sqlobject.CloseInternalDoNotUseThisClass$$EnhancerByCGLIB$$a1491d90.deleteByUserNames(<generated>) ~[jdbi-2.41.jar:na]
+! at com.nike.runclubreport.service.WeChatGroupMemberShipService.deleteMemberShipByUserNames(WeChatGroupMemberShipService.java:33) ~[classes/:na]
+! at com.nike.runclubreport.resources.GroupAPIResource.deleteOldMemberShip(GroupAPIResource.java:289) ~[classes/:na]
+! at com.nike.runclubreport.resources.GroupAPIResource.storeWeChatMemberShip(GroupAPIResource.java:213) ~[classes/:na]
+! at com.nike.runclubreport.resources.GroupAPIResource.saveMessages(GroupAPIResource.java:118) ~[classes/:na]
+! at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:1.7.0_51]
+! at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57) ~[na:1.7.0_51]
+! at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:1.7.0_51]
+! at java.lang.reflect.Method.invoke(Method.java:606) ~[na:1.7.0_51]
+! at com.sun.jersey.spi.container.JavaMethodInvokerFactory$1.invoke(JavaMethodInvokerFactory.java:60) ~[jersey-server-1.17.1.jar:1.17.1]
+! at com.sun.jersey.server.impl.model.method.dispatch.AbstractResourceMethodDispatchProvider$ResponseOutInvoker._dispatch(AbstractResourceMethodDispatchProvider.java:205) ~[jersey-server-1.17.1.jar:1.17.1]
+! at com.sun.jersey.server.impl.model.method.dispatch.ResourceJavaMethodDispatcher.dispatch(ResourceJavaMethodDispatcher.java:75) ~[jersey-server-1.17.1.jar:1.17.1]
+! at com.yammer.dropwizard.jersey.OptionalResourceMethodDispatchAdapter$OptionalRequestDispatcher.dispatch(OptionalResourceMethodDispatchAdapter.java:37) ~[dropwizard-core-0.6.2.jar:na]
+! at com.sun.jersey.server.impl.uri.rules.HttpMethodRule.accept(HttpMethodRule.java:302) ~[jersey-server-1.17.1.jar:1.17.1]
+! at com.sun.jersey.server.impl.uri.rules.RightHandPathRule.accept(RightHandPathRule.java:147) ~[jersey-server-1.17.1.jar:1.17.1]
+! at com.sun.jersey.server.impl.uri.rules.ResourceObjectRule.accept(ResourceObjectRule.java:100) ~[jersey-server-1.17.1.jar:1.17.1]
+! at com.sun.jersey.server.impl.uri.rules.RightHandPathRule.accept(RightHandPathRule.java:147) ~[jersey-server-1.17.1.jar:1.17.1]
+! at com.sun.jersey.server.impl.uri.rules.RootResourceClassesRule.accept(RootResourceClassesRule.java:84) ~[jersey-server-1.17.1.jar:1.17.1]
+! at com.sun.jersey.server.impl.application.WebApplicationImpl._handleRequest(WebApplicationImpl.java:1511) [jersey-server-1.17.1.jar:1.17.1]
+! at com.sun.jersey.server.impl.application.WebApplicationImpl._handleRequest(WebApplicationImpl.java:1442) [jersey-server-1.17.1.jar:1.17.1]
+! at com.sun.jersey.server.impl.application.WebApplicationImpl.handleRequest(WebApplicationImpl.java:1391) [jersey-server-1.17.1.jar:1.17.1]
+! at com.sun.jersey.server.impl.application.WebApplicationImpl.handleRequest(WebApplicationImpl.java:1381) [jersey-server-1.17.1.jar:1.17.1]
+! at com.sun.jersey.spi.container.servlet.WebComponent.service(WebComponent.java:416) [jersey-servlet-1.17.1.jar:1.17.1]
+! at com.sun.jersey.spi.container.servlet.ServletContainer.service(ServletContainer.java:538) [jersey-servlet-1.17.1.jar:1.17.1]
+! at com.sun.jersey.spi.container.servlet.ServletContainer.service(ServletContainer.java:716) [jersey-servlet-1.17.1.jar:1.17.1]
+! at javax.servlet.http.HttpServlet.service(HttpServlet.java:848) [javax.servlet-3.0.0.v201112011016.jar:na]
+! at org.eclipse.jetty.servlet.ServletHolder.handle(ServletHolder.java:669) [jetty-servlet-8.1.10.v20130312.jar:8.1.10.v20130312]
+! at org.eclipse.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1448) [jetty-servlet-8.1.10.v20130312.jar:8.1.10.v20130312]
+! at com.yammer.dropwizard.servlets.ThreadNameFilter.doFilter(ThreadNameFilter.java:29) [dropwizard-core-0.6.2.jar:na]
+! at org.eclipse.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1419) [jetty-servlet-8.1.10.v20130312.jar:8.1.10.v20130312]
+! at org.eclipse.jetty.servlet.ServletHandler.doHandle(ServletHandler.java:455) [jetty-servlet-8.1.10.v20130312.jar:8.1.10.v20130312]
+! at org.eclipse.jetty.server.handler.ContextHandler.doHandle(ContextHandler.java:1075) [jetty-server-8.1.10.v20130312.jar:8.1.10.v20130312]
+! at org.eclipse.jetty.servlet.ServletHandler.doScope(ServletHandler.java:384) [jetty-servlet-8.1.10.v20130312.jar:8.1.10.v20130312]
+! at org.eclipse.jetty.server.handler.ContextHandler.doScope(ContextHandler.java:1009) [jetty-server-8.1.10.v20130312.jar:8.1.10.v20130312]
+! at org.eclipse.jetty.server.handler.ScopedHandler.handle(ScopedHandler.java:135) [jetty-server-8.1.10.v20130312.jar:8.1.10.v20130312]
+! at org.eclipse.jetty.server.handler.HandlerWrapper.handle(HandlerWrapper.java:116) [jetty-server-8.1.10.v20130312.jar:8.1.10.v20130312]
+! at com.yammer.metrics.jetty.InstrumentedHandler.handle(InstrumentedHandler.java:200) [metrics-jetty-2.2.0.jar:na]
+! at org.eclipse.jetty.server.handler.GzipHandler.handle(GzipHandler.java:264) [jetty-server-8.1.10.v20130312.jar:8.1.10.v20130312]
+! at com.yammer.dropwizard.jetty.BiDiGzipHandler.handle(BiDiGzipHandler.java:123) [dropwizard-core-0.6.2.jar:na]
+! at org.eclipse.jetty.server.handler.HandlerCollection.handle(HandlerCollection.java:154) [jetty-server-8.1.10.v20130312.jar:8.1.10.v20130312]
+! at org.eclipse.jetty.server.handler.HandlerWrapper.handle(HandlerWrapper.java:116) [jetty-server-8.1.10.v20130312.jar:8.1.10.v20130312]
+! at org.eclipse.jetty.server.Server.handle(Server.java:368) [jetty-server-8.1.10.v20130312.jar:8.1.10.v20130312]
+! at org.eclipse.jetty.server.AbstractHttpConnection.handleRequest(AbstractHttpConnection.java:489) [jetty-server-8.1.10.v20130312.jar:8.1.10.v20130312]
+! at org.eclipse.jetty.server.BlockingHttpConnection.handleRequest(BlockingHttpConnection.java:53) [jetty-server-8.1.10.v20130312.jar:8.1.10.v20130312]
+! at org.eclipse.jetty.server.AbstractHttpConnection.headerComplete(AbstractHttpConnection.java:942) [jetty-server-8.1.10.v20130312.jar:8.1.10.v20130312]
+! at org.eclipse.jetty.server.AbstractHttpConnection$RequestHandler.headerComplete(AbstractHttpConnection.java:1004) [jetty-server-8.1.10.v20130312.jar:8.1.10.v20130312]
+! at org.eclipse.jetty.http.HttpParser.parseNext(HttpParser.java:640) [jetty-http-8.1.10.v20130312.jar:8.1.10.v20130312]
+! at org.eclipse.jetty.http.HttpParser.parseAvailable(HttpParser.java:235) [jetty-http-8.1.10.v20130312.jar:8.1.10.v20130312]
+! at org.eclipse.jetty.server.BlockingHttpConnection.handle(BlockingHttpConnection.java:72) [jetty-server-8.1.10.v20130312.jar:8.1.10.v20130312]
+! at org.eclipse.jetty.server.nio.BlockingChannelConnector$BlockingChannelEndPoint.run(BlockingChannelConnector.java:298) [jetty-server-8.1.10.v20130312.jar:8.1.10.v20130312]
+! at org.eclipse.jetty.util.thread.QueuedThreadPool.runJob(QueuedThreadPool.java:608) [jetty-util-8.1.10.v20130312.jar:8.1.10.v20130312]
+! at org.eclipse.jetty.util.thread.QueuedThreadPool$3.run(QueuedThreadPool.java:543) [jetty-util-8.1.10.v20130312.jar:8.1.10.v20130312]
+! at java.lang.Thread.run(Thread.java:744) [na:1.7.0_51]
+Caused by: ! com.mysql.jdbc.exceptions.jdbc4.MySQLSyntaxErrorException: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ')' at line 1
+! at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method) ~[na:1.7.0_51]
+! at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:57) ~[na:1.7.0_51]
+! at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45) ~[na:1.7.0_51]
+! at java.lang.reflect.Constructor.newInstance(Constructor.java:526) ~[na:1.7.0_51]
+! at com.mysql.jdbc.Util.handleNewInstance(Util.java:411) ~[mysql-connector-java-5.1.26.jar:na]
+! at com.mysql.jdbc.Util.getInstance(Util.java:386) ~[mysql-connector-java-5.1.26.jar:na]
+! at com.mysql.jdbc.SQLError.createSQLException(SQLError.java:1054) ~[mysql-connector-java-5.1.26.jar:na]
+! at com.mysql.jdbc.MysqlIO.checkErrorPacket(MysqlIO.java:4190) ~[mysql-connector-java-5.1.26.jar:na]
+! at com.mysql.jdbc.MysqlIO.checkErrorPacket(MysqlIO.java:4122) ~[mysql-connector-java-5.1.26.jar:na]
+! at com.mysql.jdbc.MysqlIO.sendCommand(MysqlIO.java:2570) ~[mysql-connector-java-5.1.26.jar:na]
+! at com.mysql.jdbc.MysqlIO.sqlQueryDirect(MysqlIO.java:2731) ~[mysql-connector-java-5.1.26.jar:na]
+! at com.mysql.jdbc.ConnectionImpl.execSQL(ConnectionImpl.java:2818) ~[mysql-connector-java-5.1.26.jar:na]
+! at com.mysql.jdbc.PreparedStatement.executeInternal(PreparedStatement.java:2157) ~[mysql-connector-java-5.1.26.jar:na]
+! at com.mysql.jdbc.PreparedStatement.execute(PreparedStatement.java:1379) ~[mysql-connector-java-5.1.26.jar:na]
+! at org.apache.tomcat.dbcp.dbcp.DelegatingPreparedStatement.execute(DelegatingPreparedStatement.java:172) ~[tomcat-dbcp-7.0.37.jar:7.0.37]
+! at org.apache.tomcat.dbcp.dbcp.DelegatingPreparedStatement.execute(DelegatingPreparedStatement.java:172) ~[tomcat-dbcp-7.0.37.jar:7.0.37]
+! at org.skife.jdbi.v2.SQLStatement.internalExecute(SQLStatement.java:1300) ~[jdbi-2.41.jar:na]
+!... 58 common frames omitted
+INFO  [2014-05-08 06:01:10,640] com.yammer.dropwizard.cli.ServerCommand: Starting Nike+ RunClub
+INFO  [2014-05-08 06:01:10,644] org.eclipse.jetty.server.Server: jetty-8.1.10.v20130312
+INFO  [2014-05-08 06:01:10,719] com.sun.jersey.server.impl.application.WebApplicationImpl: Initiating Jersey application, version 'Jersey: 1.17.1 02/28/2013 12:47 PM'
+INFO  [2014-05-08 06:01:10,770] com.yammer.dropwizard.config.Environment: The following paths were found for the configured resources:
+
+    GET     /keywords (com.nike.runclubreport.resources.KeywordsResource)
+    POST    /keywords/add (com.nike.runclubreport.resources.KeywordsResource)
+    POST    /keywords/edit (com.nike.runclubreport.resources.KeywordsResource)
+    GET     /api/groups/messages (com.nike.runclubreport.resources.GroupAPIResource)
+    POST    /security/login (com.nike.runclubreport.resources.SecurityResource)
+    GET     / (com.nike.runclubreport.resources.HomeResource)
+
+INFO  [2014-05-08 06:01:10,770] com.yammer.dropwizard.config.Environment: tasks = 
+
+    POST    /tasks/gc (com.yammer.dropwizard.tasks.GarbageCollectionTask)
+
+INFO  [2014-05-08 06:01:11,068] org.eclipse.jetty.server.AbstractConnector: Started InstrumentedBlockingChannelConnector@0.0.0.0:8080
+INFO  [2014-05-08 06:01:11,072] org.eclipse.jetty.server.AbstractConnector: Started SocketConnector@0.0.0.0:8081
+INFO  [2014-05-08 06:04:10,087] com.yammer.dropwizard.cli.ServerCommand: Starting Nike+ RunClub
+INFO  [2014-05-08 06:04:10,090] org.eclipse.jetty.server.Server: jetty-8.1.10.v20130312
+INFO  [2014-05-08 06:04:10,166] com.sun.jersey.server.impl.application.WebApplicationImpl: Initiating Jersey application, version 'Jersey: 1.17.1 02/28/2013 12:47 PM'
+INFO  [2014-05-08 06:04:10,215] com.yammer.dropwizard.config.Environment: The following paths were found for the configured resources:
+
+    GET     /keywords (com.nike.runclubreport.resources.KeywordsResource)
+    POST    /keywords/add (com.nike.runclubreport.resources.KeywordsResource)
+    POST    /keywords/edit (com.nike.runclubreport.resources.KeywordsResource)
+    GET     /api/groups/messages (com.nike.runclubreport.resources.GroupAPIResource)
+    POST    /security/login (com.nike.runclubreport.resources.SecurityResource)
+    GET     / (com.nike.runclubreport.resources.HomeResource)
+
+INFO  [2014-05-08 06:04:10,215] com.yammer.dropwizard.config.Environment: tasks = 
+
+    POST    /tasks/gc (com.yammer.dropwizard.tasks.GarbageCollectionTask)
+
+INFO  [2014-05-08 06:04:10,497] org.eclipse.jetty.server.AbstractConnector: Started InstrumentedBlockingChannelConnector@0.0.0.0:8080
+INFO  [2014-05-08 06:04:10,500] org.eclipse.jetty.server.AbstractConnector: Started SocketConnector@0.0.0.0:8081
+ERROR [2014-05-08 06:04:22,859] com.yammer.dropwizard.jersey.LoggingExceptionMapper: Error handling a request: dbba0a812e621f82
+! org.skife.jdbi.v2.exceptions.UnableToExecuteStatementException: java.sql.BatchUpdateException: Duplicate entry 'testuser2-1' for key 'union_membership' [statement:"insert into weChatGroupMemberShip (weChatGroupId, userName) values (:weChatGroupId, :userName)", located:"null", rewritten:"null", arguments:{ positional:{}, named:{weChatGroupId:testuser2,userName:1}, finder:[]}]
+! at org.skife.jdbi.v2.PreparedBatch.execute(PreparedBatch.java:145) ~[jdbi-2.41.jar:na]
+! at org.skife.jdbi.v2.sqlobject.BatchHandler$2.inTransaction(BatchHandler.java:163) ~[jdbi-2.41.jar:na]
+! at org.skife.jdbi.v2.sqlobject.BatchHandler$2.inTransaction(BatchHandler.java:160) ~[jdbi-2.41.jar:na]
+! at org.skife.jdbi.v2.tweak.transactions.LocalTransactionHandler.inTransaction(LocalTransactionHandler.java:193) ~[jdbi-2.41.jar:na]
+! at org.skife.jdbi.v2.BasicHandle.inTransaction(BasicHandle.java:309) ~[jdbi-2.41.jar:na]
+! at org.skife.jdbi.v2.sqlobject.BatchHandler.executeBatch(BatchHandler.java:159) ~[jdbi-2.41.jar:na]
+! at org.skife.jdbi.v2.sqlobject.BatchHandler.invoke(BatchHandler.java:137) ~[jdbi-2.41.jar:na]
+! at org.skife.jdbi.v2.sqlobject.SqlObject.invoke(SqlObject.java:147) ~[jdbi-2.41.jar:na]
+! at org.skife.jdbi.v2.sqlobject.SqlObject$1.intercept(SqlObject.java:60) ~[jdbi-2.41.jar:na]
+! at org.skife.jdbi.v2.sqlobject.CloseInternalDoNotUseThisClass$$EnhancerByCGLIB$$f9f1f37.addBatch(<generated>) ~[jdbi-2.41.jar:na]
+! at com.nike.runclubreport.service.WeChatGroupMemberShipService.addNewMemberShips(WeChatGroupMemberShipService.java:37) ~[classes/:na]
+! at com.nike.runclubreport.resources.GroupAPIResource.addNewMemberShips(GroupAPIResource.java:295) ~[classes/:na]
+! at com.nike.runclubreport.resources.GroupAPIResource.storeWeChatMemberShip(GroupAPIResource.java:217) ~[classes/:na]
+! at com.nike.runclubreport.resources.GroupAPIResource.saveMessages(GroupAPIResource.java:118) ~[classes/:na]
+! at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:1.7.0_51]
+! at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57) ~[na:1.7.0_51]
+! at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:1.7.0_51]
+! at java.lang.reflect.Method.invoke(Method.java:606) ~[na:1.7.0_51]
+! at com.sun.jersey.spi.container.JavaMethodInvokerFactory$1.invoke(JavaMethodInvokerFactory.java:60) ~[jersey-server-1.17.1.jar:1.17.1]
+! at com.sun.jersey.server.impl.model.method.dispatch.AbstractResourceMethodDispatchProvider$ResponseOutInvoker._dispatch(AbstractResourceMethodDispatchProvider.java:205) ~[jersey-server-1.17.1.jar:1.17.1]
+! at com.sun.jersey.server.impl.model.method.dispatch.ResourceJavaMethodDispatcher.dispatch(ResourceJavaMethodDispatcher.java:75) ~[jersey-server-1.17.1.jar:1.17.1]
+! at com.yammer.dropwizard.jersey.OptionalResourceMethodDispatchAdapter$OptionalRequestDispatcher.dispatch(OptionalResourceMethodDispatchAdapter.java:37) ~[dropwizard-core-0.6.2.jar:na]
+! at com.sun.jersey.server.impl.uri.rules.HttpMethodRule.accept(HttpMethodRule.java:302) ~[jersey-server-1.17.1.jar:1.17.1]
+! at com.sun.jersey.server.impl.uri.rules.RightHandPathRule.accept(RightHandPathRule.java:147) ~[jersey-server-1.17.1.jar:1.17.1]
+! at com.sun.jersey.server.impl.uri.rules.ResourceObjectRule.accept(ResourceObjectRule.java:100) ~[jersey-server-1.17.1.jar:1.17.1]
+! at com.sun.jersey.server.impl.uri.rules.RightHandPathRule.accept(RightHandPathRule.java:147) ~[jersey-server-1.17.1.jar:1.17.1]
+! at com.sun.jersey.server.impl.uri.rules.RootResourceClassesRule.accept(RootResourceClassesRule.java:84) ~[jersey-server-1.17.1.jar:1.17.1]
+! at com.sun.jersey.server.impl.application.WebApplicationImpl._handleRequest(WebApplicationImpl.java:1511) [jersey-server-1.17.1.jar:1.17.1]
+! at com.sun.jersey.server.impl.application.WebApplicationImpl._handleRequest(WebApplicationImpl.java:1442) [jersey-server-1.17.1.jar:1.17.1]
+! at com.sun.jersey.server.impl.application.WebApplicationImpl.handleRequest(WebApplicationImpl.java:1391) [jersey-server-1.17.1.jar:1.17.1]
+! at com.sun.jersey.server.impl.application.WebApplicationImpl.handleRequest(WebApplicationImpl.java:1381) [jersey-server-1.17.1.jar:1.17.1]
+! at com.sun.jersey.spi.container.servlet.WebComponent.service(WebComponent.java:416) [jersey-servlet-1.17.1.jar:1.17.1]
+! at com.sun.jersey.spi.container.servlet.ServletContainer.service(ServletContainer.java:538) [jersey-servlet-1.17.1.jar:1.17.1]
+! at com.sun.jersey.spi.container.servlet.ServletContainer.service(ServletContainer.java:716) [jersey-servlet-1.17.1.jar:1.17.1]
+! at javax.servlet.http.HttpServlet.service(HttpServlet.java:848) [javax.servlet-3.0.0.v201112011016.jar:na]
+! at org.eclipse.jetty.servlet.ServletHolder.handle(ServletHolder.java:669) [jetty-servlet-8.1.10.v20130312.jar:8.1.10.v20130312]
+! at org.eclipse.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1448) [jetty-servlet-8.1.10.v20130312.jar:8.1.10.v20130312]
+! at com.yammer.dropwizard.servlets.ThreadNameFilter.doFilter(ThreadNameFilter.java:29) [dropwizard-core-0.6.2.jar:na]
+! at org.eclipse.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1419) [jetty-servlet-8.1.10.v20130312.jar:8.1.10.v20130312]
+! at org.eclipse.jetty.servlet.ServletHandler.doHandle(ServletHandler.java:455) [jetty-servlet-8.1.10.v20130312.jar:8.1.10.v20130312]
+! at org.eclipse.jetty.server.handler.ContextHandler.doHandle(ContextHandler.java:1075) [jetty-server-8.1.10.v20130312.jar:8.1.10.v20130312]
+! at org.eclipse.jetty.servlet.ServletHandler.doScope(ServletHandler.java:384) [jetty-servlet-8.1.10.v20130312.jar:8.1.10.v20130312]
+! at org.eclipse.jetty.server.handler.ContextHandler.doScope(ContextHandler.java:1009) [jetty-server-8.1.10.v20130312.jar:8.1.10.v20130312]
+! at org.eclipse.jetty.server.handler.ScopedHandler.handle(ScopedHandler.java:135) [jetty-server-8.1.10.v20130312.jar:8.1.10.v20130312]
+! at org.eclipse.jetty.server.handler.HandlerWrapper.handle(HandlerWrapper.java:116) [jetty-server-8.1.10.v20130312.jar:8.1.10.v20130312]
+! at com.yammer.metrics.jetty.InstrumentedHandler.handle(InstrumentedHandler.java:200) [metrics-jetty-2.2.0.jar:na]
+! at org.eclipse.jetty.server.handler.GzipHandler.handle(GzipHandler.java:264) [jetty-server-8.1.10.v20130312.jar:8.1.10.v20130312]
+! at com.yammer.dropwizard.jetty.BiDiGzipHandler.handle(BiDiGzipHandler.java:123) [dropwizard-core-0.6.2.jar:na]
+! at org.eclipse.jetty.server.handler.HandlerCollection.handle(HandlerCollection.java:154) [jetty-server-8.1.10.v20130312.jar:8.1.10.v20130312]
+! at org.eclipse.jetty.server.handler.HandlerWrapper.handle(HandlerWrapper.java:116) [jetty-server-8.1.10.v20130312.jar:8.1.10.v20130312]
+! at org.eclipse.jetty.server.Server.handle(Server.java:368) [jetty-server-8.1.10.v20130312.jar:8.1.10.v20130312]
+! at org.eclipse.jetty.server.AbstractHttpConnection.handleRequest(AbstractHttpConnection.java:489) [jetty-server-8.1.10.v20130312.jar:8.1.10.v20130312]
+! at org.eclipse.jetty.server.BlockingHttpConnection.handleRequest(BlockingHttpConnection.java:53) [jetty-server-8.1.10.v20130312.jar:8.1.10.v20130312]
+! at org.eclipse.jetty.server.AbstractHttpConnection.headerComplete(AbstractHttpConnection.java:942) [jetty-server-8.1.10.v20130312.jar:8.1.10.v20130312]
+! at org.eclipse.jetty.server.AbstractHttpConnection$RequestHandler.headerComplete(AbstractHttpConnection.java:1004) [jetty-server-8.1.10.v20130312.jar:8.1.10.v20130312]
+! at org.eclipse.jetty.http.HttpParser.parseNext(HttpParser.java:640) [jetty-http-8.1.10.v20130312.jar:8.1.10.v20130312]
+! at org.eclipse.jetty.http.HttpParser.parseAvailable(HttpParser.java:235) [jetty-http-8.1.10.v20130312.jar:8.1.10.v20130312]
+! at org.eclipse.jetty.server.BlockingHttpConnection.handle(BlockingHttpConnection.java:72) [jetty-server-8.1.10.v20130312.jar:8.1.10.v20130312]
+! at org.eclipse.jetty.server.nio.BlockingChannelConnector$BlockingChannelEndPoint.run(BlockingChannelConnector.java:298) [jetty-server-8.1.10.v20130312.jar:8.1.10.v20130312]
+! at org.eclipse.jetty.util.thread.QueuedThreadPool.runJob(QueuedThreadPool.java:608) [jetty-util-8.1.10.v20130312.jar:8.1.10.v20130312]
+! at org.eclipse.jetty.util.thread.QueuedThreadPool$3.run(QueuedThreadPool.java:543) [jetty-util-8.1.10.v20130312.jar:8.1.10.v20130312]
+! at java.lang.Thread.run(Thread.java:744) [na:1.7.0_51]
+Caused by: ! java.sql.BatchUpdateException: Duplicate entry 'testuser2-1' for key 'union_membership'
+! at com.mysql.jdbc.PreparedStatement.executeBatchSerially(PreparedStatement.java:2056) ~[mysql-connector-java-5.1.26.jar:na]
+! at com.mysql.jdbc.PreparedStatement.executeBatch(PreparedStatement.java:1467) ~[mysql-connector-java-5.1.26.jar:na]
+! at org.apache.tomcat.dbcp.dbcp.DelegatingStatement.executeBatch(DelegatingStatement.java:297) ~[tomcat-dbcp-7.0.37.jar:7.0.37]
+! at org.apache.tomcat.dbcp.dbcp.DelegatingStatement.executeBatch(DelegatingStatement.java:297) ~[tomcat-dbcp-7.0.37.jar:7.0.37]
+! at org.skife.jdbi.v2.PreparedBatch.execute(PreparedBatch.java:135) ~[jdbi-2.41.jar:na]
+!... 61 common frames omitted
+Caused by: ! com.mysql.jdbc.exceptions.jdbc4.MySQLIntegrityConstraintViolationException: Duplicate entry 'testuser2-1' for key 'union_membership'
+! at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method) ~[na:1.7.0_51]
+! at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:57) ~[na:1.7.0_51]
+! at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45) ~[na:1.7.0_51]
+! at java.lang.reflect.Constructor.newInstance(Constructor.java:526) ~[na:1.7.0_51]
+! at com.mysql.jdbc.Util.handleNewInstance(Util.java:411) ~[mysql-connector-java-5.1.26.jar:na]
+! at com.mysql.jdbc.Util.getInstance(Util.java:386) ~[mysql-connector-java-5.1.26.jar:na]
+! at com.mysql.jdbc.SQLError.createSQLException(SQLError.java:1041) ~[mysql-connector-java-5.1.26.jar:na]
+! at com.mysql.jdbc.MysqlIO.checkErrorPacket(MysqlIO.java:4190) ~[mysql-connector-java-5.1.26.jar:na]
+! at com.mysql.jdbc.MysqlIO.checkErrorPacket(MysqlIO.java:4122) ~[mysql-connector-java-5.1.26.jar:na]
+! at com.mysql.jdbc.MysqlIO.sendCommand(MysqlIO.java:2570) ~[mysql-connector-java-5.1.26.jar:na]
+! at com.mysql.jdbc.MysqlIO.sqlQueryDirect(MysqlIO.java:2731) ~[mysql-connector-java-5.1.26.jar:na]
+! at com.mysql.jdbc.ConnectionImpl.execSQL(ConnectionImpl.java:2818) ~[mysql-connector-java-5.1.26.jar:na]
+! at com.mysql.jdbc.PreparedStatement.executeInternal(PreparedStatement.java:2157) ~[mysql-connector-java-5.1.26.jar:na]
+! at com.mysql.jdbc.PreparedStatement.executeUpdate(PreparedStatement.java:2460) ~[mysql-connector-java-5.1.26.jar:na]
+! at com.mysql.jdbc.PreparedStatement.executeBatchSerially(PreparedStatement.java:2008) ~[mysql-connector-java-5.1.26.jar:na]
+!... 65 common frames omitted
+INFO  [2014-05-08 06:14:18,840] com.yammer.dropwizard.cli.ServerCommand: Starting Nike+ RunClub
+INFO  [2014-05-08 06:14:18,843] org.eclipse.jetty.server.Server: jetty-8.1.10.v20130312
+INFO  [2014-05-08 06:14:18,914] com.sun.jersey.server.impl.application.WebApplicationImpl: Initiating Jersey application, version 'Jersey: 1.17.1 02/28/2013 12:47 PM'
+INFO  [2014-05-08 06:14:18,962] com.yammer.dropwizard.config.Environment: The following paths were found for the configured resources:
+
+    GET     /keywords (com.nike.runclubreport.resources.KeywordsResource)
+    POST    /keywords/add (com.nike.runclubreport.resources.KeywordsResource)
+    POST    /keywords/edit (com.nike.runclubreport.resources.KeywordsResource)
+    GET     /api/groups/messages (com.nike.runclubreport.resources.GroupAPIResource)
+    POST    /security/login (com.nike.runclubreport.resources.SecurityResource)
+    GET     / (com.nike.runclubreport.resources.HomeResource)
+
+INFO  [2014-05-08 06:14:18,962] com.yammer.dropwizard.config.Environment: tasks = 
+
+    POST    /tasks/gc (com.yammer.dropwizard.tasks.GarbageCollectionTask)
+
+INFO  [2014-05-08 06:14:19,233] org.eclipse.jetty.server.AbstractConnector: Started InstrumentedBlockingChannelConnector@0.0.0.0:8080
+INFO  [2014-05-08 06:14:19,236] org.eclipse.jetty.server.AbstractConnector: Started SocketConnector@0.0.0.0:8081
+ERROR [2014-05-08 06:14:31,247] com.yammer.dropwizard.jersey.LoggingExceptionMapper: Error handling a request: af25438c1fdc6ea1
+! org.skife.jdbi.v2.exceptions.UnableToExecuteStatementException: java.sql.BatchUpdateException: Duplicate entry 'testuser2-1' for key 'union_membership' [statement:"insert into weChatGroupMemberShip (weChatGroupId, userName) values (:weChatGroupId, :userName)", located:"null", rewritten:"null", arguments:{ positional:{}, named:{weChatGroupId:testuser2,userName:1}, finder:[]}]
+! at org.skife.jdbi.v2.PreparedBatch.execute(PreparedBatch.java:145) ~[jdbi-2.41.jar:na]
+! at org.skife.jdbi.v2.sqlobject.BatchHandler$2.inTransaction(BatchHandler.java:163) ~[jdbi-2.41.jar:na]
+! at org.skife.jdbi.v2.sqlobject.BatchHandler$2.inTransaction(BatchHandler.java:160) ~[jdbi-2.41.jar:na]
+! at org.skife.jdbi.v2.tweak.transactions.LocalTransactionHandler.inTransaction(LocalTransactionHandler.java:193) ~[jdbi-2.41.jar:na]
+! at org.skife.jdbi.v2.BasicHandle.inTransaction(BasicHandle.java:309) ~[jdbi-2.41.jar:na]
+! at org.skife.jdbi.v2.sqlobject.BatchHandler.executeBatch(BatchHandler.java:159) ~[jdbi-2.41.jar:na]
+! at org.skife.jdbi.v2.sqlobject.BatchHandler.invoke(BatchHandler.java:137) ~[jdbi-2.41.jar:na]
+! at org.skife.jdbi.v2.sqlobject.SqlObject.invoke(SqlObject.java:147) ~[jdbi-2.41.jar:na]
+! at org.skife.jdbi.v2.sqlobject.SqlObject$1.intercept(SqlObject.java:60) ~[jdbi-2.41.jar:na]
+! at org.skife.jdbi.v2.sqlobject.CloseInternalDoNotUseThisClass$$EnhancerByCGLIB$$8c2d8ecc.addBatch(<generated>) ~[jdbi-2.41.jar:na]
+! at com.nike.runclubreport.service.WeChatGroupMemberShipService.addNewMemberShips(WeChatGroupMemberShipService.java:37) ~[classes/:na]
+! at com.nike.runclubreport.resources.GroupAPIResource.addNewMemberShips(GroupAPIResource.java:298) ~[classes/:na]
+! at com.nike.runclubreport.resources.GroupAPIResource.storeWeChatMemberShip(GroupAPIResource.java:220) ~[classes/:na]
+! at com.nike.runclubreport.resources.GroupAPIResource.saveMessages(GroupAPIResource.java:118) ~[classes/:na]
+! at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:1.7.0_51]
+! at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57) ~[na:1.7.0_51]
+! at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:1.7.0_51]
+! at java.lang.reflect.Method.invoke(Method.java:606) ~[na:1.7.0_51]
+! at com.sun.jersey.spi.container.JavaMethodInvokerFactory$1.invoke(JavaMethodInvokerFactory.java:60) ~[jersey-server-1.17.1.jar:1.17.1]
+! at com.sun.jersey.server.impl.model.method.dispatch.AbstractResourceMethodDispatchProvider$ResponseOutInvoker._dispatch(AbstractResourceMethodDispatchProvider.java:205) ~[jersey-server-1.17.1.jar:1.17.1]
+! at com.sun.jersey.server.impl.model.method.dispatch.ResourceJavaMethodDispatcher.dispatch(ResourceJavaMethodDispatcher.java:75) ~[jersey-server-1.17.1.jar:1.17.1]
+! at com.yammer.dropwizard.jersey.OptionalResourceMethodDispatchAdapter$OptionalRequestDispatcher.dispatch(OptionalResourceMethodDispatchAdapter.java:37) ~[dropwizard-core-0.6.2.jar:na]
+! at com.sun.jersey.server.impl.uri.rules.HttpMethodRule.accept(HttpMethodRule.java:302) ~[jersey-server-1.17.1.jar:1.17.1]
+! at com.sun.jersey.server.impl.uri.rules.RightHandPathRule.accept(RightHandPathRule.java:147) ~[jersey-server-1.17.1.jar:1.17.1]
+! at com.sun.jersey.server.impl.uri.rules.ResourceObjectRule.accept(ResourceObjectRule.java:100) ~[jersey-server-1.17.1.jar:1.17.1]
+! at com.sun.jersey.server.impl.uri.rules.RightHandPathRule.accept(RightHandPathRule.java:147) ~[jersey-server-1.17.1.jar:1.17.1]
+! at com.sun.jersey.server.impl.uri.rules.RootResourceClassesRule.accept(RootResourceClassesRule.java:84) ~[jersey-server-1.17.1.jar:1.17.1]
+! at com.sun.jersey.server.impl.application.WebApplicationImpl._handleRequest(WebApplicationImpl.java:1511) [jersey-server-1.17.1.jar:1.17.1]
+! at com.sun.jersey.server.impl.application.WebApplicationImpl._handleRequest(WebApplicationImpl.java:1442) [jersey-server-1.17.1.jar:1.17.1]
+! at com.sun.jersey.server.impl.application.WebApplicationImpl.handleRequest(WebApplicationImpl.java:1391) [jersey-server-1.17.1.jar:1.17.1]
+! at com.sun.jersey.server.impl.application.WebApplicationImpl.handleRequest(WebApplicationImpl.java:1381) [jersey-server-1.17.1.jar:1.17.1]
+! at com.sun.jersey.spi.container.servlet.WebComponent.service(WebComponent.java:416) [jersey-servlet-1.17.1.jar:1.17.1]
+! at com.sun.jersey.spi.container.servlet.ServletContainer.service(ServletContainer.java:538) [jersey-servlet-1.17.1.jar:1.17.1]
+! at com.sun.jersey.spi.container.servlet.ServletContainer.service(ServletContainer.java:716) [jersey-servlet-1.17.1.jar:1.17.1]
+! at javax.servlet.http.HttpServlet.service(HttpServlet.java:848) [javax.servlet-3.0.0.v201112011016.jar:na]
+! at org.eclipse.jetty.servlet.ServletHolder.handle(ServletHolder.java:669) [jetty-servlet-8.1.10.v20130312.jar:8.1.10.v20130312]
+! at org.eclipse.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1448) [jetty-servlet-8.1.10.v20130312.jar:8.1.10.v20130312]
+! at com.yammer.dropwizard.servlets.ThreadNameFilter.doFilter(ThreadNameFilter.java:29) [dropwizard-core-0.6.2.jar:na]
+! at org.eclipse.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1419) [jetty-servlet-8.1.10.v20130312.jar:8.1.10.v20130312]
+! at org.eclipse.jetty.servlet.ServletHandler.doHandle(ServletHandler.java:455) [jetty-servlet-8.1.10.v20130312.jar:8.1.10.v20130312]
+! at org.eclipse.jetty.server.handler.ContextHandler.doHandle(ContextHandler.java:1075) [jetty-server-8.1.10.v20130312.jar:8.1.10.v20130312]
+! at org.eclipse.jetty.servlet.ServletHandler.doScope(ServletHandler.java:384) [jetty-servlet-8.1.10.v20130312.jar:8.1.10.v20130312]
+! at org.eclipse.jetty.server.handler.ContextHandler.doScope(ContextHandler.java:1009) [jetty-server-8.1.10.v20130312.jar:8.1.10.v20130312]
+! at org.eclipse.jetty.server.handler.ScopedHandler.handle(ScopedHandler.java:135) [jetty-server-8.1.10.v20130312.jar:8.1.10.v20130312]
+! at org.eclipse.jetty.server.handler.HandlerWrapper.handle(HandlerWrapper.java:116) [jetty-server-8.1.10.v20130312.jar:8.1.10.v20130312]
+! at com.yammer.metrics.jetty.InstrumentedHandler.handle(InstrumentedHandler.java:200) [metrics-jetty-2.2.0.jar:na]
+! at org.eclipse.jetty.server.handler.GzipHandler.handle(GzipHandler.java:264) [jetty-server-8.1.10.v20130312.jar:8.1.10.v20130312]
+! at com.yammer.dropwizard.jetty.BiDiGzipHandler.handle(BiDiGzipHandler.java:123) [dropwizard-core-0.6.2.jar:na]
+! at org.eclipse.jetty.server.handler.HandlerCollection.handle(HandlerCollection.java:154) [jetty-server-8.1.10.v20130312.jar:8.1.10.v20130312]
+! at org.eclipse.jetty.server.handler.HandlerWrapper.handle(HandlerWrapper.java:116) [jetty-server-8.1.10.v20130312.jar:8.1.10.v20130312]
+! at org.eclipse.jetty.server.Server.handle(Server.java:368) [jetty-server-8.1.10.v20130312.jar:8.1.10.v20130312]
+! at org.eclipse.jetty.server.AbstractHttpConnection.handleRequest(AbstractHttpConnection.java:489) [jetty-server-8.1.10.v20130312.jar:8.1.10.v20130312]
+! at org.eclipse.jetty.server.BlockingHttpConnection.handleRequest(BlockingHttpConnection.java:53) [jetty-server-8.1.10.v20130312.jar:8.1.10.v20130312]
+! at org.eclipse.jetty.server.AbstractHttpConnection.headerComplete(AbstractHttpConnection.java:942) [jetty-server-8.1.10.v20130312.jar:8.1.10.v20130312]
+! at org.eclipse.jetty.server.AbstractHttpConnection$RequestHandler.headerComplete(AbstractHttpConnection.java:1004) [jetty-server-8.1.10.v20130312.jar:8.1.10.v20130312]
+! at org.eclipse.jetty.http.HttpParser.parseNext(HttpParser.java:640) [jetty-http-8.1.10.v20130312.jar:8.1.10.v20130312]
+! at org.eclipse.jetty.http.HttpParser.parseAvailable(HttpParser.java:235) [jetty-http-8.1.10.v20130312.jar:8.1.10.v20130312]
+! at org.eclipse.jetty.server.BlockingHttpConnection.handle(BlockingHttpConnection.java:72) [jetty-server-8.1.10.v20130312.jar:8.1.10.v20130312]
+! at org.eclipse.jetty.server.nio.BlockingChannelConnector$BlockingChannelEndPoint.run(BlockingChannelConnector.java:298) [jetty-server-8.1.10.v20130312.jar:8.1.10.v20130312]
+! at org.eclipse.jetty.util.thread.QueuedThreadPool.runJob(QueuedThreadPool.java:608) [jetty-util-8.1.10.v20130312.jar:8.1.10.v20130312]
+! at org.eclipse.jetty.util.thread.QueuedThreadPool$3.run(QueuedThreadPool.java:543) [jetty-util-8.1.10.v20130312.jar:8.1.10.v20130312]
+! at java.lang.Thread.run(Thread.java:744) [na:1.7.0_51]
+Caused by: ! java.sql.BatchUpdateException: Duplicate entry 'testuser2-1' for key 'union_membership'
+! at com.mysql.jdbc.PreparedStatement.executeBatchSerially(PreparedStatement.java:2056) ~[mysql-connector-java-5.1.26.jar:na]
+! at com.mysql.jdbc.PreparedStatement.executeBatch(PreparedStatement.java:1467) ~[mysql-connector-java-5.1.26.jar:na]
+! at org.apache.tomcat.dbcp.dbcp.DelegatingStatement.executeBatch(DelegatingStatement.java:297) ~[tomcat-dbcp-7.0.37.jar:7.0.37]
+! at org.apache.tomcat.dbcp.dbcp.DelegatingStatement.executeBatch(DelegatingStatement.java:297) ~[tomcat-dbcp-7.0.37.jar:7.0.37]
+! at org.skife.jdbi.v2.PreparedBatch.execute(PreparedBatch.java:135) ~[jdbi-2.41.jar:na]
+!... 61 common frames omitted
+Caused by: ! com.mysql.jdbc.exceptions.jdbc4.MySQLIntegrityConstraintViolationException: Duplicate entry 'testuser2-1' for key 'union_membership'
+! at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method) ~[na:1.7.0_51]
+! at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:57) ~[na:1.7.0_51]
+! at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45) ~[na:1.7.0_51]
+! at java.lang.reflect.Constructor.newInstance(Constructor.java:526) ~[na:1.7.0_51]
+! at com.mysql.jdbc.Util.handleNewInstance(Util.java:411) ~[mysql-connector-java-5.1.26.jar:na]
+! at com.mysql.jdbc.Util.getInstance(Util.java:386) ~[mysql-connector-java-5.1.26.jar:na]
+! at com.mysql.jdbc.SQLError.createSQLException(SQLError.java:1041) ~[mysql-connector-java-5.1.26.jar:na]
+! at com.mysql.jdbc.MysqlIO.checkErrorPacket(MysqlIO.java:4190) ~[mysql-connector-java-5.1.26.jar:na]
+! at com.mysql.jdbc.MysqlIO.checkErrorPacket(MysqlIO.java:4122) ~[mysql-connector-java-5.1.26.jar:na]
+! at com.mysql.jdbc.MysqlIO.sendCommand(MysqlIO.java:2570) ~[mysql-connector-java-5.1.26.jar:na]
+! at com.mysql.jdbc.MysqlIO.sqlQueryDirect(MysqlIO.java:2731) ~[mysql-connector-java-5.1.26.jar:na]
+! at com.mysql.jdbc.ConnectionImpl.execSQL(ConnectionImpl.java:2818) ~[mysql-connector-java-5.1.26.jar:na]
+! at com.mysql.jdbc.PreparedStatement.executeInternal(PreparedStatement.java:2157) ~[mysql-connector-java-5.1.26.jar:na]
+! at com.mysql.jdbc.PreparedStatement.executeUpdate(PreparedStatement.java:2460) ~[mysql-connector-java-5.1.26.jar:na]
+! at com.mysql.jdbc.PreparedStatement.executeBatchSerially(PreparedStatement.java:2008) ~[mysql-connector-java-5.1.26.jar:na]
+!... 65 common frames omitted
+INFO  [2014-05-08 06:14:55,348] com.yammer.dropwizard.cli.ServerCommand: Starting Nike+ RunClub
+INFO  [2014-05-08 06:14:55,351] org.eclipse.jetty.server.Server: jetty-8.1.10.v20130312
+INFO  [2014-05-08 06:14:55,424] com.sun.jersey.server.impl.application.WebApplicationImpl: Initiating Jersey application, version 'Jersey: 1.17.1 02/28/2013 12:47 PM'
+INFO  [2014-05-08 06:14:55,472] com.yammer.dropwizard.config.Environment: The following paths were found for the configured resources:
+
+    GET     /keywords (com.nike.runclubreport.resources.KeywordsResource)
+    POST    /keywords/add (com.nike.runclubreport.resources.KeywordsResource)
+    POST    /keywords/edit (com.nike.runclubreport.resources.KeywordsResource)
+    GET     /api/groups/messages (com.nike.runclubreport.resources.GroupAPIResource)
+    POST    /security/login (com.nike.runclubreport.resources.SecurityResource)
+    GET     / (com.nike.runclubreport.resources.HomeResource)
+
+INFO  [2014-05-08 06:14:55,472] com.yammer.dropwizard.config.Environment: tasks = 
+
+    POST    /tasks/gc (com.yammer.dropwizard.tasks.GarbageCollectionTask)
+
+INFO  [2014-05-08 06:14:55,749] org.eclipse.jetty.server.AbstractConnector: Started InstrumentedBlockingChannelConnector@0.0.0.0:8080
+INFO  [2014-05-08 06:14:55,752] org.eclipse.jetty.server.AbstractConnector: Started SocketConnector@0.0.0.0:8081
+INFO  [2014-05-08 06:23:53,593] com.yammer.dropwizard.cli.ServerCommand: Starting Nike+ RunClub
+INFO  [2014-05-08 06:23:53,597] org.eclipse.jetty.server.Server: jetty-8.1.10.v20130312
+INFO  [2014-05-08 06:23:53,688] com.sun.jersey.server.impl.application.WebApplicationImpl: Initiating Jersey application, version 'Jersey: 1.17.1 02/28/2013 12:47 PM'
+INFO  [2014-05-08 06:23:53,741] com.yammer.dropwizard.config.Environment: The following paths were found for the configured resources:
+
+    GET     /keywords (com.nike.runclubreport.resources.KeywordsResource)
+    POST    /keywords/add (com.nike.runclubreport.resources.KeywordsResource)
+    POST    /keywords/edit (com.nike.runclubreport.resources.KeywordsResource)
+    GET     /api/groups/messages (com.nike.runclubreport.resources.GroupAPIResource)
+    POST    /security/login (com.nike.runclubreport.resources.SecurityResource)
+    GET     / (com.nike.runclubreport.resources.HomeResource)
+
+INFO  [2014-05-08 06:23:53,741] com.yammer.dropwizard.config.Environment: tasks = 
+
+    POST    /tasks/gc (com.yammer.dropwizard.tasks.GarbageCollectionTask)
+
+INFO  [2014-05-08 06:23:54,050] org.eclipse.jetty.server.AbstractConnector: Started InstrumentedBlockingChannelConnector@0.0.0.0:8080
+INFO  [2014-05-08 06:23:54,052] org.eclipse.jetty.server.AbstractConnector: Started SocketConnector@0.0.0.0:8081
+INFO  [2014-05-08 06:27:19,119] com.yammer.dropwizard.cli.ServerCommand: Starting Nike+ RunClub
+INFO  [2014-05-08 06:27:19,122] org.eclipse.jetty.server.Server: jetty-8.1.10.v20130312
+INFO  [2014-05-08 06:27:19,194] com.sun.jersey.server.impl.application.WebApplicationImpl: Initiating Jersey application, version 'Jersey: 1.17.1 02/28/2013 12:47 PM'
+INFO  [2014-05-08 06:27:19,242] com.yammer.dropwizard.config.Environment: The following paths were found for the configured resources:
+
+    GET     /keywords (com.nike.runclubreport.resources.KeywordsResource)
+    POST    /keywords/add (com.nike.runclubreport.resources.KeywordsResource)
+    POST    /keywords/edit (com.nike.runclubreport.resources.KeywordsResource)
+    GET     /api/groups/messages (com.nike.runclubreport.resources.GroupAPIResource)
+    POST    /security/login (com.nike.runclubreport.resources.SecurityResource)
+    GET     / (com.nike.runclubreport.resources.HomeResource)
+
+INFO  [2014-05-08 06:27:19,242] com.yammer.dropwizard.config.Environment: tasks = 
+
+    POST    /tasks/gc (com.yammer.dropwizard.tasks.GarbageCollectionTask)
+
+INFO  [2014-05-08 06:27:19,513] org.eclipse.jetty.server.AbstractConnector: Started InstrumentedBlockingChannelConnector@0.0.0.0:8080
+INFO  [2014-05-08 06:27:19,516] org.eclipse.jetty.server.AbstractConnector: Started SocketConnector@0.0.0.0:8081
+INFO  [2014-05-08 09:40:08,004] com.yammer.dropwizard.cli.ServerCommand: Starting Nike+ RunClub
+INFO  [2014-05-08 09:40:08,008] org.eclipse.jetty.server.Server: jetty-8.1.10.v20130312
+INFO  [2014-05-08 09:40:08,099] com.sun.jersey.server.impl.application.WebApplicationImpl: Initiating Jersey application, version 'Jersey: 1.17.1 02/28/2013 12:47 PM'
+INFO  [2014-05-08 09:40:08,154] com.yammer.dropwizard.config.Environment: The following paths were found for the configured resources:
+
+    GET     /keywords (com.nike.runclubreport.resources.KeywordsResource)
+    POST    /keywords/add (com.nike.runclubreport.resources.KeywordsResource)
+    POST    /keywords/edit (com.nike.runclubreport.resources.KeywordsResource)
+    GET     /api/groups/messages (com.nike.runclubreport.resources.GroupAPIResource)
+    POST    /security/login (com.nike.runclubreport.resources.SecurityResource)
+    GET     / (com.nike.runclubreport.resources.HomeResource)
+
+INFO  [2014-05-08 09:40:08,154] com.yammer.dropwizard.config.Environment: tasks = 
+
+    POST    /tasks/gc (com.yammer.dropwizard.tasks.GarbageCollectionTask)
+
+INFO  [2014-05-08 09:40:08,469] org.eclipse.jetty.server.AbstractConnector: Started InstrumentedBlockingChannelConnector@0.0.0.0:8080
+INFO  [2014-05-08 09:40:08,472] org.eclipse.jetty.server.AbstractConnector: Started SocketConnector@0.0.0.0:8081
+INFO  [2014-05-08 09:42:17,093] com.yammer.dropwizard.cli.ServerCommand: Starting Nike+ RunClub
+INFO  [2014-05-08 09:42:17,097] org.eclipse.jetty.server.Server: jetty-8.1.10.v20130312
+INFO  [2014-05-08 09:42:17,191] com.sun.jersey.server.impl.application.WebApplicationImpl: Initiating Jersey application, version 'Jersey: 1.17.1 02/28/2013 12:47 PM'
+INFO  [2014-05-08 09:42:17,245] com.yammer.dropwizard.config.Environment: The following paths were found for the configured resources:
+
+    GET     /keywords (com.nike.runclubreport.resources.KeywordsResource)
+    POST    /keywords/add (com.nike.runclubreport.resources.KeywordsResource)
+    POST    /keywords/edit (com.nike.runclubreport.resources.KeywordsResource)
+    GET     /api/groups/messages (com.nike.runclubreport.resources.GroupAPIResource)
+    POST    /security/login (com.nike.runclubreport.resources.SecurityResource)
+    GET     / (com.nike.runclubreport.resources.HomeResource)
+
+INFO  [2014-05-08 09:42:17,245] com.yammer.dropwizard.config.Environment: tasks = 
+
+    POST    /tasks/gc (com.yammer.dropwizard.tasks.GarbageCollectionTask)
+
+INFO  [2014-05-08 09:42:17,547] org.eclipse.jetty.server.AbstractConnector: Started InstrumentedBlockingChannelConnector@0.0.0.0:8080
+INFO  [2014-05-08 09:42:17,549] org.eclipse.jetty.server.AbstractConnector: Started SocketConnector@0.0.0.0:8081

@@ -1,0 +1,2 @@
+// data migration
+java -jar com.nike.runclubreport-1.0-SNAPSHOT.jar db migrate devconfig.yml
